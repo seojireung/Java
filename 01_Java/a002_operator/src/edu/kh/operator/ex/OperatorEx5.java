@@ -17,7 +17,7 @@ public class OperatorEx5 {
 		a += 4; // a = a + 4;
 		System.out.println("a를 4 증가 : " + a);  // 15
 		
-		a -= 10; // a = a - 1;
+		a -= 10; // a = a - 10;
 		System.out.println("a를 10 감소 : " + a);  // 5
 		
 		a *= 3; // a = a * 3;
