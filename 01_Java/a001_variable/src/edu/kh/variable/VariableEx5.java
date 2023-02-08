@@ -125,6 +125,7 @@ public class VariableEx5 {
 	   
 	   System.out.println(bNum); // -128 (오버플로우 발생)
 	   
+	   // ** 값의 범위를 잘못 예측한 경우 오버플로우가 발생함!! **
 	   // 실제 사례_유튜브 싸이 강남스타일 조회수
 	   // 오버플로우 확인
 	   int iNum1 = 1000000000; // 10억
@@ -133,10 +134,11 @@ public class VariableEx5 {
 	   int iNum3 = iNum1 + iNum2; // 30억이 나와야되지만...
 	   // long iNum3 = (long)iNum1 + iNum2; // 해결 방법
 	   
-	   
 	   System.out.println(iNum3);
 	   
-	   // ** 값의 범위를 잘못 예측한 경우 오버플로우가 발생함!! **
+	   
+	   
+	  
 		
 		
 		
