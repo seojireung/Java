@@ -18,8 +18,8 @@ public class ScannerEx {
 		// 3) Scanner를 이용해서 키보드 입력 값 얻어오기
 		
 		System.out.print("정수 입력 1 : ");
-		
 		int input1 = sc.nextInt();
+		
 		// sc.nextInt() : 다음 입력되는 정수를 얻어옴
 		
 		//System.out.println(input1);
