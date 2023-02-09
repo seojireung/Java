@@ -23,6 +23,5 @@ public class ConditionPracticeRun {
 		default : System.out.println("존재하지 않은 예시 번호입니다.");
 		}
 		
-		
 	}
 }
