@@ -20,11 +20,25 @@ public class OperatorPractice4 {
 		int math = sc.nextInt();
 		
 		System.out.println("");
+		
+		// +추가) 합계
+				int sum = korean + english + math;
+				
+				// +추가) 평균
+				double avg = sum / 3.0;
+				                 // (double)
 	
+		/*
 		System.out.printf("합계 : " + "%d\n", korean + english + math);
 		System.out.printf("평균 : " + "%.1f\n", (korean + english + math)/3.0);
+		*/
 		
-		String result = korean >= 40 && english >= 40 && math >= 40 && (korean + english + math)/3.0 >= 60 ? "합격" : "불합격";
+		System.out.println("합계 : " + sum);	
+		System.out.println("평균 : " + avg);	
+		
+		// String result = korean >= 40 && english >= 40 && math >= 40 && (korean + english + math)/3.0 >= 60 ? "합격" : "불합격";
+		
+		String result = korean >= 40 && english >= 40 && math >= 40 && avg >= 60 ? "합격" : "불합격";
 		
 		System.out.println(result);
 		

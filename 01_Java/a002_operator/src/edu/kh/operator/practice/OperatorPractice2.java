@@ -13,15 +13,20 @@ public class OperatorPractice2 {
 		
 		
 		System.out.print("이름 : ");
-		String name = sc.next();
+		String name = sc.next(); // 단어 입력
+		
 		System.out.print("학년(정수) : ");
-		int grade = sc.nextInt();
+		int grade = sc.nextInt(); 
+		
 		System.out.print("반(정수) : ");
 		int classs = sc.nextInt();
+		
 		System.out.print("번호(정수) : ");
 		int num = sc.nextInt();
+		
 		System.out.print("성별(남학생/여학생) : ");
 		String gender = sc.next();
+		
 		System.out.print("성적(소수점 아래 둘째 자리까지 : ");
 		double testGrade = sc.nextDouble();
 		

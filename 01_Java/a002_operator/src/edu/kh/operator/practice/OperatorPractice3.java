@@ -13,9 +13,9 @@ public class OperatorPractice3 {
 	
 		
 		System.out.print("정수 입력 : ");
-		int input1 = sc.nextInt();
+		int input = sc.nextInt();
 		
-		String result1 = input1 > 0 ? "양수 입니다." : "음수 입니다." ;
+	/*	String result1 = input1 > 0 ? "양수 입니다." : "음수 입니다." ;
 		System.out.println(result1);
 		
 		System.out.println("");
@@ -33,8 +33,11 @@ public class OperatorPractice3 {
 		
 		String result3 = input3 > 0 ? "양수 입니다." : 0==0? "0 입니다." : "음수 입니다.";
 		System.out.println(result3);
+		*/
 		
+		String result = input == 0 ? "0" : ( input > 0 ? "양수" : "음수" );
 		
+		System.out.println(result + " 입니다.");
 		
 		
 		

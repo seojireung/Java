@@ -16,11 +16,16 @@ public class OperatorPractice1 {
 		System.out.print("사탕 개수 : ");
 		int candies = sc.nextInt();
 		
-		System.out.println("");
+		// 줄 바꿈 방법
+		// 내가 쓴 것 
+		// System.out.println("");
+		// 아래 코드 "\n" 적기
 		
-		//1인당 사탕 개수 : 
-		System.out.println("1인당 사탕 개수 : " + candies / people );
-		//남는 사탕 개수:
+		// 1인당 사탕 개수 : 
+		// System.out.println("1인당 사탕 개수 : " + candies / people );
+		System.out.println("\n1인당 사탕 개수 : " + candies / people );
+		
+		// 남는 사탕 개수:
 		System.out.println("남는 사탕 개수 : " + candies % people );
 		
 	}
