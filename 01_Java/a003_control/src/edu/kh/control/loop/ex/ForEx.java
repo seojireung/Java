@@ -314,4 +314,174 @@ public class ForEx {
 		}
 	}
 
+	// 중첩 반복문 기본 사용법 1
+	public void ex15() {
+
+		// 12345
+		// 4번 출력
+
+		// 1,2,3) 코드를 작성하기 위해 생각한 순서
+		for (int x = 1; x <= 4; x++) { // 생각3) 4회 반복
+			for (int i = 1; i <= 5; i++) { // 생각1) 12345 출력
+				System.out.print(i);
+			}
+			System.out.println(x); // 생각2) 줄바꿈(개행)
+		}
+
+	}
+
+	// 중첩 반복문 기본 사용법 2
+	public void ex16() {
+
+		// 1 2 3 4 5
+		// 2 4 6 8 10
+		// 3 6 9 12 15
+		// 4 8 12 16 20
+		// 5 10 15 20 25
+
+		for (int x = 1; x <= 5; x++) {
+			for (int i = 1; i <= 5; i++) { // 한 줄 출력
+				System.out.printf("%3d", x * i);
+			}
+			System.out.println(); // 개행
+		}
+
+	}
+
+	// 중첩 반복문 응용 사용법 1
+	public void ex17() {
+		// 구구단을 2단 부터 9단까지 모두 출력하기
+
+		// 2x1=2 2x2=4 2x3=6 ....
+		// 3x1=3 3x2=6 3x3=9 ....
+		// 4x1=4 4x2=8 4x3=12 ....
+		// ...
+		// 9x1=9 9x2=18 9x3=27 ....
+
+		// 2~9단 (앞자리 수)
+		for (int dan = 2; dan <= 9; dan++) {
+			for (int num = 1; num <= 9; num++) {
+				System.out.printf("%dx%d=%d ", dan, num, dan * num);
+			}
+			System.out.println(); // 안쪽 구문 끝났을 때 개행해주기
+		}
+
+	}
+
+	// 중첩 반복문 응용 사용법 2
+	public void ex18() {
+
+		// 2중 for문을 이용하여 다음 모양을 출력하세요.
+
+		// 1
+		// 12
+		// 123
+		// 1234
+
+		for (int x = 1; x <= 4; x++) { // 4번 반복 (x = 1,2,3,4)
+
+			for (int i = 1; i <= x; i++) { // 한 줄 출력
+				System.out.print(i);
+			}
+			System.out.println(); // 개행
+		}
+
+	}
+
+	// 중첩 반복문 응용 사용법 3
+	public void ex19() {
+		// 2중 for문을 이용하여 다음 모양을 출력하세요.
+
+		// 4
+		// 43
+		// 432
+		// 4321
+
+		for (int x = 4; x >= 1; x--) {
+			for (int i = 4; i >= x; i--) {
+				System.out.print(i);
+			}
+			System.out.println(); // 개행
+		}
+
+	}
+
+	// 중첩 반복문 응용 사용법 4
+	public void ex20() {
+
+		// 입력된 정수 : 3
+		// 321
+		// 21
+		// 1
+
+		// 입력된 정수 : 4
+		// 4321
+		// 321
+		// 21
+		// 1
+
+		Scanner sc = new Scanner(System.in);
+		System.out.print("입력된 정수 : ");
+		int input = sc.nextInt();
+
+		for (int x = input; x >= 1; x--) { // x=3,2,1
+			for (int i = x; i >= 1; i--) {
+				System.out.print(i);
+			}
+			System.out.println();
+		}
+
+	}
+
+	// 카운트 (개수 세기)
+	public void ex21() {
+
+		// 1부터 20 사이의 3의 배수의 합과 개수를 출력
+		// (3 6 9 12 15 18)
+
+		// sum : 63
+		// count : 6
+
+		int sum = 0; // 합계 저장용 변수(공간)
+		int count = 0; // 카운트용 변수
+
+		for (int i = 1; i <= 20; i++) {
+			if (i % 3 == 0) {
+				sum += i; // 누적
+				count++; // 개수 증가 (1)
+			}
+		}
+		System.out.println("sum : " + sum);
+		System.out.println("count : " + count);
+	}
+
+	// 카운트를 이용한 2중 for문 *********************디버그로 생각해보기
+	public void ex22() {
+
+		// 1 2 3 4
+		// 5 6 7 8
+		// 9 10 11 12
+
+		// 3행 4열 표라고 생각
+
+		int count = 1; // 화면에 1부터 시작하니까 // 숫자로 세기 위한 변수 선언
+
+		for (int row = 1; row <= 3; row++) { // 3행
+			for (int col = 1; col <= 4; col++) {
+				System.out.printf("%3d", count);
+				count++; // 출력 후 1 증가
+			}
+			System.out.println();
+		}
+		
+/*		for (int row = 1; row <= 3; row++) { // 3행
+			for (int col = 1; col <= 4; col++) {
+				System.out.printf("%3d", count++);
+				// 출력 후 1증가(후위 연산) 
+			}
+			System.out.println();
+		}
+*/
+		
+	}
 }
