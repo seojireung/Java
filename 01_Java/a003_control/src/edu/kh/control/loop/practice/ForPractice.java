@@ -85,26 +85,100 @@ public class ForPractice {
 
 	public void practice5() {
 
+		Scanner sc = new Scanner(System.in);
+		System.out.print("숫자 : ");
+		int a = sc.nextInt();
+		System.out.printf("===== %d단 =====\n", a);
+
+		for (int i = 1; i <= 9; i++) {
+			System.out.printf("%d * %d = %d\n", a, i, a * i);
+		}
+
 	}
 
 	public void practice6() {
+
+		Scanner sc = new Scanner(System.in);
+		System.out.print("숫자 : ");
+		int a = sc.nextInt();
+
+		if (a < 2 || a > 9) {
+			System.out.println("2~9 사이 숫자만 입력해주세요");
+		} else {
+			for (int dan = a; dan <= 9; dan++) {
+				System.out.printf("===== %d단 =====\n", dan);
+				for (int i = 1; i <= 9; i++) {
+					System.out.printf("%d * %d = %d\n", dan, i, dan * i);
+				}
+			}
+		}
 
 	}
 
 	public void practice7() {
 
+		Scanner sc = new Scanner(System.in);
+		System.out.print("정수 입력 : ");
+		int a = sc.nextInt();
+
+		for (int i = 1; i <= a; i++) {
+			for (int x = 1; x <= i; x++) {
+				System.out.print("*");
+			}
+			System.out.println("");
+		}
 	}
 
 	public void practice8() {
+
+		Scanner sc = new Scanner(System.in);
+		System.out.print("정수 입력 : ");
+		int a = sc.nextInt();
+
+		for (int i = a; i >= 1; i--) {
+			for (int x = 1; x <= i; x++) {
+				System.out.print("*");
+			}
+			System.out.println("");
+		}
 
 	}
 
 	public void practice9() {
 
+		Scanner sc = new Scanner(System.in);
+		System.out.print("정수 입력 : ");
+		int a = sc.nextInt();
+
+		for (int i = 1; i <= a; i++) {
+			for (int x = 1; x <= a - i; x++) {
+				System.out.print(" ");
+			}
+			for (int x = 1; x <= i; x++) {
+				System.out.print("*");
+			}
+			System.out.println("");
+		}
 	}
 
 	public void practice10() {
 
+		Scanner sc = new Scanner(System.in);
+		System.out.print("정수 입력 : ");
+		int a = sc.nextInt();
+
+		for (int i = 1; i <= a; i++) {
+			for (int x = 1; x <= i; x++) {
+				System.out.print("*");
+			}
+			System.out.println("");
+		}
+		for (int i = a; i >= 1; i--) {
+			for (int x = 1; x <= i; x++) {
+				System.out.print("*");
+			}
+			System.out.println("");
+		}
 	}
 
 	public void practice11() {
