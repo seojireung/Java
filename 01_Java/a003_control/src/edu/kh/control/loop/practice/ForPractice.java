@@ -183,15 +183,73 @@ public class ForPractice {
 
 	public void practice11() {
 
-		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("정수 입력 : ");
+		int a = sc.nextInt();
+
+		for (int i = 1; i <= a; i++) {
+			for (int x = 1; x <= a - i; x++) {
+				System.out.print(" ");
+			}
+			for (int y = 1; y <= i; y++) {
+				System.out.print("*");
+			}
+			for (int y = 2; y <= i; y++) {
+				System.out.print("*");
+			}
+			for (int x = 1; x <= a - i; x++) {
+				System.out.print(" ");
+			}
+			System.out.println("");
+
+		}
 	}
 
 	public void practice12() {
 
+		Scanner sc = new Scanner(System.in);
+		System.out.print("정수 입력 : ");
+		int a = sc.nextInt();
+
+		for (int i = 1; i <= a; i++) {
+			System.out.print("*");
+		}
+		System.out.println("");
+		for (int y = 1; y <= a - 2; y++) {
+			System.out.print("*");
+			for (int x = 1; x <= a - 2; x++) {
+				System.out.print(" ");
+			}
+			System.out.print("*");
+			System.out.println("");
+		}
+		for (int i = 1; i <= a; i++) {
+			System.out.print("*");
+		}
+
 	}
 
 	public void practice13() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("자연수 하나를 입력하세요 : ");
+		int a = sc.nextInt();
 
+		int count = 0;
+
+		if (a < 1) {
+			System.out.println("자연수만 입력 가능합니다.");
+		} else {
+			for (int i = 1; i <= a; i++) {
+				if (i % 2 == 0 || i % 3 == 0) {
+					System.out.print(i + " ");
+				}
+				if (i % 6 == 0) {
+					count++;
+				}
+			}
+			System.out.println("");
+			System.out.printf("count : %d", count);
+		}
 	}
 
 }
