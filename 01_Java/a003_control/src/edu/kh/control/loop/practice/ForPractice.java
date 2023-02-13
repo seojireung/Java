@@ -202,7 +202,31 @@ public class ForPractice {
 			}
 			System.out.println("");
 
-		}
+		}    
+		
+/*		//쌤 풀이 빈칸 먼저 출력
+ * for문 두개 사용
+		for(int row=1; row<=input; row++) {
+			for(int col=input-1; col>=1; col--) {
+				System.out.print(" ");
+			}
+			for(int col=1;col<=row*2-1; col++) {
+				System.out.println("*");
+			}
+			}   */
+		
+		
+/* for문 1개, if-else 1개	
+		for(int col=1; col<=input+row-1; col++) {
+			System.out.print("*");
+			if(input-row>=col) {
+				System.out.print(" ");
+			}else {
+				System.out.print("*");
+			}
+		} */
+		
+		
 	}
 
 	public void practice12() {
@@ -226,6 +250,19 @@ public class ForPractice {
 		for (int i = 1; i <= a; i++) {
 			System.out.print("*");
 		}
+		
+		/*쌤 풀이 첫번째,마지막 줄 행만 *출력하고 나머진 공백 
+		for(int row=1; row<=input; row++) {
+			for(int col=1; col<=input; col++) {
+				if(row==1 || row==input || col==1 || col==input) {
+					System.out.print("*");
+				} else {
+					System.out.print(" ");
+				}
+				System.out.print("*");
+			} 
+			System.out.println(); // 개행
+		} */
 
 	}
 
