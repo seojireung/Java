@@ -7,6 +7,9 @@ public class ArrayRun2 {
 		ArrayEx2 ae2 = new ArrayEx2();
 		
 //		ae2.ex1();
+//		ae2.ex2();
+		ae2.ex3();
+		
 		
 		
 	}
