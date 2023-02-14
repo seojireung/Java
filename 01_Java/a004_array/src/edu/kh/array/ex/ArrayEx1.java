@@ -144,9 +144,9 @@ public class ArrayEx1 {
 		for (int i = 0; i < heightArray.length; i++) {
 			// i = 0,1,2
 			System.out.print(heightArray[i] + " ");
-			sum += heightArray[i]; // 키 누적 /배열 활용2 (11:13)
-
-		}
+			sum += heightArray[i]; // 키 누적
+		} 
+	  System.out.printf("\n평균 키 : %.2fcm", sum/3);  // sum(double)/3(int) == double로 자동 형변
 
 	}
 	
@@ -169,6 +169,7 @@ public class ArrayEx1 {
 	
 	
 	// 배열 사용 시 주의 사항!!!!
+	// *****문제 해결 시나리오 
 	public void ex5() {
 		
 		// 배열의 범위를 넘어선 index를 참조하는 경우
@@ -188,14 +189,13 @@ public class ArrayEx1 {
 		
 		
 		// 문제점 : for문의 조건식에서 i의 범위가
-		//			arr 배열의 인덱스 범위를 초과하는 값까지 
-		//          증가하도록 작성되어
-		//			실행 시 for문 내 출력 구문에서
-		//			ArrayIndexOutOfBoundsException이 발생함.
-		
+		//		  arr 배열의 인덱스 범위를 초과하는 값까지 
+		//        증가하도록 작성되어
+		//	      실행 시 for문 내 출력 구문에서
+		//		  ArrayIndexOutOfBoundsException이 발생함.
 		
 		// 해결 방법 : 조건식을 i < arr.length로 수정하여
-		//             i가 배열의 인덱스 범위를 초과하지 않도록함.
+		//           i가 배열의 인덱스 범위를 초과하지 않도록함.
 	}
 	
 	
@@ -224,7 +224,6 @@ public class ArrayEx1 {
 		int size = sc.nextInt();
 		
 		int[] scoreArr = new int[size]; // 입력 받은 정수의 길이를 갖는 배열 생성
-		
 
 		int sum = 0; // 합계 저장용 변수
 		
@@ -237,11 +236,11 @@ public class ArrayEx1 {
 		
 		System.out.println(); // 개행
 		
-		int max = scoreArr[0];  // 1) 매우 작은 수
-								// 2) 배열의 0번 인덱스 값
+		int max = scoreArr[0];  // 방법1) 매우 작은 수 (비교위해, ex.-20억)
+								// 방법2) 배열의 0번 인덱스 값
 		
-		int min = scoreArr[0]; // 1) 매우 큰 수
-							   // 2) 배열의 0번 인덱스 값
+		int min = scoreArr[0]; // 방법1) 매우 큰 수 (비교위해, ex.20억)
+							   // 방법2) 배열의 0번 인덱스 값
 					
 		// 최고/최저점 인덱스 저장용 변수
 		int maxIndex = 0; // 0번 인덱스
@@ -266,7 +265,7 @@ public class ArrayEx1 {
 		
 		System.out.println("합계 : " + sum);
 		System.out.println("평균 : " + (sum / (double)size)  );
-											// == scoreArr.length
+											        // == scoreArr.length
 		
 		System.out.printf("최고점 : %d (%d번 학생) \n", max, maxIndex + 1);
 		System.out.printf("최저점 : %d (%d번 학생) \n", min, minIndex + 1);
