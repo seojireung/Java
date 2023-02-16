@@ -132,7 +132,7 @@ public class VariableEx5 {
 	   int iNum2 = 2000000000; // 20억
 	   
 	   int iNum3 = iNum1 + iNum2; // 30억이 나와야되지만...
-	   // long iNum3 = (long)iNum1 + iNum2; // 해결 방법
+	   //long iNum3 = (long)iNum1 + iNum2; // 해결 방법
 	   
 	   System.out.println(iNum3);
 	   

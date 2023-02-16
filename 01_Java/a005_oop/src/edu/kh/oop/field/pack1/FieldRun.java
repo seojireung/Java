@@ -28,27 +28,15 @@ public class FieldRun extends FieldTest3 {
 		// -> private은 다른 클래스에서 보이지 않음!
 		
 		System.out.println(f2.v1); // public
-		//System.out.println(f2.v2); 
+		// System.out.println(f2.v2); 
+		// System.out.println(f2.v3); 
+		// System.out.println(f2.v4); 
 		// 패키지가 다른 FeildTest2는 
 		// public만 접근 가능 하고 나머지는 불가능
+		// public도 import 해야함
 		
-		
-	}
 	
-	public void ex() {
-
-		FieldTest3 t3 = new FieldTest3();
-		
-		System.out.println(t3.v1); // public
-//		System.out.println(t3.v2); // protected
-		
-		System.out.println(v2);
-		
-		// FieldRun이 FieldTest3를 상속 받음
-		// -> FieldTest3의 필드를
-		//    FieldRun이 자신의 것처럼 사용 가능
-		
-		
-	}
-
+	}	
+	
+	
 }
