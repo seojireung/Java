@@ -15,7 +15,7 @@ public class ArrayPracticeRun {
 //		ap.practice7(); //o
 //		ap.practice8(); //o (마지막 , 빼는 방법)
 //		ap.practice9(); //o
-//		ap.practice10(); 
+		ap.practice10(); 
 //		ap.practice11(); //o
 //		ap.practice12();
 //		ap.practice13();
