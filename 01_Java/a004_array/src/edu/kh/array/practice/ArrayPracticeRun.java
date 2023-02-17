@@ -6,17 +6,17 @@ public class ArrayPracticeRun {
 
 		ArrayPractice ap = new ArrayPractice();
 
-//		ap.practice1();
-//		ap.practice2();
-		ap.practice3();
-//		ap.practice4();
-//		ap.practice5();
-//		ap.practice6();
-//		ap.practice7();
-//		ap.practice8();
-//		ap.practice9();
-//		ap.practice10();
-//		ap.practice11();
+//		ap.practice1(); //o
+//		ap.practice2(); //o
+//		ap.practice3(); //o
+//		ap.practice4(); //o
+//		ap.practice5(); 
+//		ap.practice6(); //o
+//		ap.practice7(); //o
+//		ap.practice8(); //o (마지막 , 빼는 방법)
+//		ap.practice9(); //o
+//		ap.practice10(); 
+//		ap.practice11(); //o
 //		ap.practice12();
 //		ap.practice13();
 //		ap.practice14();
