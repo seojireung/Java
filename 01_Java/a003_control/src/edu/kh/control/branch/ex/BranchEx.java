@@ -62,7 +62,7 @@ public class BranchEx {
 		}
 	}
 
-	// contunue 예시3
+	// continue 예시3
 	public void ex4() {
 
 		for (int i = 1; i <= 10; i++) {
@@ -74,7 +74,7 @@ public class BranchEx {
 		}
 	}
 
-	// contunue 예시4
+	// continue 예시4
 	public void ex5() {
 
 		// 1 ~ 100까지 1씩 증가하며 출력하는 반복문
@@ -88,7 +88,7 @@ public class BranchEx {
 			if (i%5==0) {
 				continue;
 			}System.out.print(i + " ");
-		}  // 다시 보기
+		}  
 		
 
 /*		for (int i = 1; i <= 100; i++) {

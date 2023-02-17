@@ -39,10 +39,11 @@ public class ForPractice {
 		System.out.print("정수를 하나 입력하세요 : ");
 		int a = sc.nextInt();
 
+		
 		int sum = 0;
 		//
 		for (int i = 1; i <= a; i++) {
-			sum += i; // a 아니고 i
+			sum += i; 
 
 			if (i < a) {
 				System.out.printf("%d + ", i);
@@ -51,8 +52,13 @@ public class ForPractice {
 			}
 		} //
 		/*
-		 * 다른 풀이 ************************다시 보기 for (int i = 1; i <= a; i++) { sum += i;
-		 * System.out.printf("%d + ", i); } sum += a; System.out.print(a + " = " + sum);
+		 * 다른 풀이
+		 * for (int i = 1; i <= a; i++) { 
+		 *      sum += i;
+		 *      System.out.printf("%d + ", i); 
+		 *      } 
+		 *      sum += a;
+		 *      System.out.print(a + " = " + sum);
 		 */
 
 		System.out.print(sum);
@@ -234,7 +240,7 @@ public class ForPractice {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("정수 입력 : ");
 		int a = sc.nextInt();
-
+/*
 		for (int i = 1; i <= a; i++) {
 			System.out.print("*");
 		}
@@ -250,19 +256,18 @@ public class ForPractice {
 		for (int i = 1; i <= a; i++) {
 			System.out.print("*");
 		}
-		
-		/*쌤 풀이 첫번째,마지막 줄 행만 *출력하고 나머진 공백 
-		for(int row=1; row<=input; row++) {
-			for(int col=1; col<=input; col++) {
-				if(row==1 || row==input || col==1 || col==input) {
+		*/
+		//쌤 풀이 첫번째,마지막 줄 행만 *출력하고 나머진 공백 
+		for(int row=1; row<=a; row++) {
+			for(int col=1; col<=a; col++) {
+				if(row==1 || row==a || col==1 || col==a) {
 					System.out.print("*");
 				} else {
 					System.out.print(" ");
 				}
-				System.out.print("*");
 			} 
 			System.out.println(); // 개행
-		} */
+		} 
 
 	}
 
