@@ -82,24 +82,29 @@ public class ArrayPractice {
 		}
 	}
 
-	public void practice5() { // ******** 문자열 입력 받아 하나하나 char배열에 대입하는 법?
-		// 입력 받은 문자열 변수 선언?
-		//
-
-		/*
-		 * Scanner sc = new Scanner(System.in); char[] word; boolean flag = true; int
-		 * count = 0; int index = -1;
-		 * 
-		 * System.out.println("문자열 : ");
-		 * 
-		 * for(int i=0; i<word.length; i++) { String a = sc.next(); // word[i] = ;
-		 * System.out.print(a); } System.out.println(); System.out.print("문자 : ");
-		 * String target = sc.next(); for(int i=0; i<word.length; i++) {
-		 * if(target.equals(word[i])) { index = i;
-		 * //System.out.print("%s에 %d가 존재하는 위치(인덱스) : ", );// 사용 위치, %s 어떻게 표현? count++;
-		 * 
-		 * } System.out.printf("%d 개수 : %d", target, count); }
-		 */
+	public void practice5() { 
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("문자열 : ");
+	    String str = sc.next();
+	    int count = 0;
+	    
+		System.out.print("문자 : ");
+		char target = sc.next().charAt(0);
+		
+		System.out.printf("%s에 %s가 존재하는 위치(인덱스) : ", str, target);
+		
+		for(int i=0; i<str.length(); i++) {
+			if(target==str.charAt(i)) {
+				System.out.print(i + " ");
+				count++;
+			}
+		}
+	
+		System.out.printf("\n%s 개수 : %d", target, count);
+	 
+	    
+		
 
 	}
 
@@ -179,15 +184,15 @@ public class ArrayPractice {
 
 	public void practice10() {
 		int[] arr = new int[10];
-		int max = arr[0];
-		int min = arr[0];
+		int max = 0;
+		int min = 10;
 		
 		System.out.print("발생한 난수 : ");
 		for(int i=0; i<10; i++) {
 			arr[i] = (int)(Math.random()*10+1);
 	     	System.out.print(arr[i] + " ");
 	     	}
-		System.out.println();
+		
 		for(int x=0; x<10; x++) {
      	if(arr[x]>max) {
      		max = arr[x];
@@ -196,6 +201,7 @@ public class ArrayPractice {
      		min = arr[x];
 		}
 		}
+		System.out.println();
      	System.out.println("최대값 : " + max);
      	System.out.println("최소값 : " + min);
 		
@@ -219,31 +225,151 @@ public class ArrayPractice {
 	}
 
 	public void practice12() {
+		int[] lotto = new int[6];
+		
+		for(int i=0; i<6; i++) {
+			lotto[i] = (int)(Math.random()*45+1);
+			for(int x=0; x<i; x++) {
+				if(lotto[i]==lotto[x]) {
+					i--;
+				}
+			}
+		}
+		Arrays.sort(lotto);
+		System.out.println(Arrays.toString(lotto));
 
 	}
 
 	public void practice13() {
-
+/*	방법1) 문제점: 순서대로 비교라서 arraay로 하면 중복 확인 안됨
+ *        해결 모색: 중복 문자 없는 배열을 새로 만들고 싶
+ * 	Scanner sc = new Scanner(System.in);
+		System.out.print("문자열 : ");
+	    String str = sc.next();
+	    int count = 0;
+	    
+	    System.out.print("문자열에 있는 문자 : ");
+	    
+	    for(int i=0; i<str.length(); i++) {
+	       for(int x=0; x<i; x++) {
+	    	if(str.charAt(i)==str.charAt(x)) {
+	    		i++;
+	    		continue;
+	    	}
+	       }
+	       count++;
+	       System.out.print(str.charAt(i));
+	       if (i!=str.length()-1) {
+	    	   System.out.print(", ");
+	       }
+	    }
+	   System.out.println();
+	   System.out.println("문자 개수 : " + count);
+	
+   이중 for문에 if문 쓰고, str.charAt(i)활용까진 했지만
+  *중복 확인 시 i++로 건너뛰고 continue 시키는 것, 
+  *중복 아닌 경우는 안쪽 for문 밖에 쓰는 것 생각 못함  */
+		
+		//방법2) 중복 문자 없는 배열 생성
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("문자열 : ");
+	    String str = sc.next();
+	    char[] noDup = str.toCharArray(); //.toCharArray() :문자열을 한글자씩 char타입 배열로.
+	    int count = 0;
+	    
+	    String ans = "";  //여기서부터 다시보기
+	    for(int i=0;i<noDup.length;i++) {
+			if(ans.indexOf(noDup[i])==-1) {
+				ans+=noDup[i]+", ";
+				count++;
+			}
+		}
+	    System.out.println("문자열에 있는 문자 : "+ans.substring(0, ans.length()-2));
+	    System.out.println("문자 개수 : "+count);
+	    
+	    
 	}
-
 	public void practice14() {
 
 	}
 
 	public void practice15() {
-
+		String[][] array = new String[3][3];
+		
+		for(int i=0;i<array.length;i++) {
+			for(int x=0; x<array.length; x++) {
+				array[i][x] = "(" + i + ", " + x + ")";
+				System.out.print(array[i][x]);
+			}
+			System.out.println();
+		}
 	}
 
 	public void practice16() {
+		int[][] array = new int[4][4];
+		int count = 1;
+		
+		for(int i=0; i<array.length; i++) {
+			for(int x=0; x<array[i].length; x++) {
+				array[i][x] = count++;
+				System.out.printf("%3d", array[i][x]);
+			} System.out.println();
+		}
 
 	}
 
 	public void practice17() {
+		int[][] array = new int[4][4];
+		int count = 16;
 
+		for(int i=0; i<array.length; i++) {
+			for(int x=0; x<array[i].length; x++) {
+				array[i][x] = count--;
+				System.out.printf("%3d", array[i][x]);
+			} System.out.println();
+		}
 	}
 
 	public void practice18() {
-
+/*		int[][] array = new int[4][4];
+		int sum = 0;
+		
+		for(int i=0; i<array.length-1; i++) {
+			for(int x=0; x<array.length-1; x++) {
+				array[i][x] = (int)(Math.random()*10+1);
+				array[i][3] += array[i][x];
+				array[3][x] += array[i][x];
+				System.out.printf("%3d", array[i][x]);
+				sum += array[i][x];
+			}System.out.printf("%3d", array[i][3]);
+		     System.out.println();
+		     
+		} 
+		array[3][3] = sum;
+		System.out.println(Arrays.deepToString(array)); 
+		오답 */
+		
+		int[][] arr=new int[4][4];
+		
+		for(int i=0;i<arr.length-1;i++)
+			for(int j=0;j<arr[i].length-1;j++) {
+				arr[i][j] = (int) (Math.random() * 10 + 1);
+				arr[arr.length - 1][arr.length - 1] += arr[i][j];
+			}
+		
+		for(int i=0;i<arr.length-1;i++)
+			for(int j=0;j<arr.length-1;j++)
+				arr[i][arr.length-1] += arr[i][j];
+		
+		for(int i=0;i<arr.length-1;i++)
+			for(int j=0;j<arr.length-1;j++)
+				arr[arr.length-1][i] += arr[j][i];
+		for(int i=0;i<arr.length;i++) {
+			for(int j=0;j<arr.length;j++)
+				System.out.printf("%3d", arr[i][j]);
+			System.out.println();
+		}
 	}
 
 	public void practice19() {
