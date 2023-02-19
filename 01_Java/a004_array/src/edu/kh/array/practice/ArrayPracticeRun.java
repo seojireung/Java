@@ -25,7 +25,7 @@ public class ArrayPracticeRun {
 //		ap.practice15();//o
 //		ap.practice16();//o
 //		ap.practice17();//o
-		ap.practice18();//o 다시보기
+//		ap.practice18();//o 다시보기
 //		ap.practice19();
 //		ap.practice20();
 //		ap.practice21();
