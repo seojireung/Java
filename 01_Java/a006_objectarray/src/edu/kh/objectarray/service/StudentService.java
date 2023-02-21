@@ -1,5 +1,8 @@
 package edu.kh.objectarray.service;
 
+import java.util.Arrays;
+import java.util.Random;
+
 import edu.kh.objectarray.dto.Student;
 
 // 기능 제공용 클래스(비즈니스 로직 처리)
@@ -38,17 +41,181 @@ public class StudentService {
 		for(int i=0; i<studentArr.length; i++) {
 			// 배열 요소가 참조하는 주소가 없을 경우 == 비어있다고 판단
 			if (studentArr[i] == null) {
-				
+				// 비어있는 배열 요소에
+				// 매개 변수를 이용해서 새 학생 객체를 만들어 주소 대입
+				studentArr[i] = new Student(grade,classRoom, number, name);
+				return true; // 호출한 곳으로 true 가지고 돌아감
 			}
 		}
 		
 		// 만약 비어있는 인덱스가 없을 경우
-		// -> false 반환
-		
-		
-		
-		
-		return true; //에러 없애기 위해 true/false 아무거나 씀
+		// -> false 반환(종료)
+		return false; 
 	}
+	
+	/**2. 학생 전체 조회 서비스
+	 * @return studentArr : Student[]
+	 */
+	public Student[] selectAll() {
+		// studentArr를 (배열을 참조하는 주소를) 반환
+		return studentArr;
+	}
+	
+	
+	/**3. 학생 정보 조회(인덱스)
+	 * @param index:int
+	 * 
+	 * @return studentArr[index] : Student 참조 변수
+	 * null 이 반환 될 수 있음
+	 * */
+	public Student selectIndex(int index) {
+		
+		// index 값이 0~4 사이가 아니면
+		// 배열 범위를 초과 했다는 ArrayIndexOutOfBoundsException 발생
+		
+		// 해결 방법 : 배열 범위가 넘어선 경우에 대한 별도 처리
+		
+		//if(!(index>=0 && index<=4))
+		if(index<0 || index>= studentArr.length) {
+			return null;
+		}
+		return studentArr[index];
+		
+	}
+	
+	/**4. 학생 정보 조회(이름)
+	 * @param inputName : String
+	 * 
+	 * return은 한개만 돌려보낼 수 있음
+	 * @return resultArr : Student[] (조회된 학생이 없을 경우 null)
+	 */
+	public Student[] selectName (String inputName) {
+		
+		// 이름이 일치하는 학생 모두(동명이인)를 저장할 객체배열 선언 및 초기화
+		Student[] resultArr = new Student[studentArr.length]; 
+		int index = 0; // resultArr에 값을 대입할 인덱스를 나타낸 변수
+		
+		// studentArr에서 이름이 일치하는 학생 찾기
+		for(int i=0; i<studentArr.length; i++) {
+			
+			// studentArr[i]가 null인지 검사
+			if(studentArr[i]==null)
+			{
+				break; // NullPointerException 방지를 위해 반복 종료
+			}
+			// i번째 요소의 name과 입력 받은 inputName이 같을 경우
+			if(studentArr[i].getName().equals(inputName)) { // getName()!!!
+				// resultArr에 studentArr[i]의 값(주소)를 대입 -> 얕은 복사
+				resultArr[index++] = studentArr[i]; // 같은 index에 값 덮어씌우지 않도록.
+				//-> studentArr[i] 값 대입 후 index 값 증가(후위 연산)
+			}
+		}
+		
+		//이름이 일치하는 학생이 없어서 index가 증가하지 않았다면
+		if(index==0) {
+			return null; // null 반환
+		}
+		
+		return resultArr;
+		
+		
+	}
+	
+	/**5. 학생 정보 수정(인덱스) 서비스
+	 * @param index:int
+	 * @param kor:int
+	 * @param eng:int
+	 * @param math:int
+	 * 
+	 * @return 수정 성공 시 true / 실패 시 false
+	 */
+	public boolean updateStudent(int index, int kor, int eng, int math) {
+		
+		// 문제가 없을 경우 index번째 학생의 점수를 수정 후 true 반환 /*다시 이해하기*/
+		studentArr[index].setKor(kor);
+		studentArr[index].setEng(eng);
+		studentArr[index].setMath(math);
+		
+		// 예상 가능한 문제
+		// 1) index 범위를 초과한 입력
+		// 2) index 번째 요소가 null인 경우
+		
+	                      // 1)                            // 2)
+		if( (index < 0 || index >= studentArr.length) || studentArr[index] == null ) 
+			return false;
+			
+		return true;
+	
+	}
+	
+	/**6. 학생 총점 점수 합계, 평균, 최고점, 최저점 조회 
+	 * @return arr : int[] (인덱스 순서대로 총점 합계, 총점 평균, 총점 최고점, 총점 최저점)
+	 * 
+	 *  */
+	public int[] sumAvgMaxMin() {
+		
+	    // 학생 랜덤 점수 추가
+	    Random random = new Random();
+	    for(Student s : studentArr) {
+	       
+	       if(s == null) break;
+	       
+	       // (int)(Math.random() * 101) == random.nextInt(101)
+	       s.setKor(random.nextInt(101));
+	       s.setEng(random.nextInt(101));
+	       s.setMath(random.nextInt(101));
+	    }
+	      
+		
+		// 최종 결과를 저장할 변수
+		int[] arr = new int[4];
+		
+		int size = 0;
+		
+		// 값이 있는 학생 수 구하기 
+		for(int i=0; i<=studentArr.length; i++) {
+			if(studentArr[i]==null) break;
+			else {
+				size++; 
+			}
+			 
+		}
+		
+		// sum 구하기
+		// 존재하는 학생의 합계를 저장할 배열
+		int[] sumArr = new int[size];
+		// 왜 < ?
+		for(int i=0; i<sumArr.length; i++) { //오류 해결) sumArr.length만큼 반복해야 함
+			if( (size < 0 || size >= studentArr.length) || studentArr[i] == null ) break;
+			else  {
+			// 학생 한명의 점수 합	
+			sumArr[i] = studentArr[i].getKor()+studentArr[i].getEng()+studentArr[i].getMath();
+			// 전체 학생의 점수 합
+			arr[0] += sumArr[i];
+			}
+		}
+		
+		// 전체 총점 평균
+		arr[1] = arr[0] / size;
+		
+		int max = sumArr[0]; // max 구하기
+		int min = sumArr[0]; // min 구하기
+		
+	    for(int s : sumArr) {
+	    	if(s>max) max = s;
+	    	if(s<min) min = s;
+	    }
+	    
+	    arr[2] = max;
+	    arr[3] = min;
+		
+	    System.out.println(Arrays.toString(sumArr));
+		
+		return arr;
+	}
+	
+	
+	
+	
 	
 }
