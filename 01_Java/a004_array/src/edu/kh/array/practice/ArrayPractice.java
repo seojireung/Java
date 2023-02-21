@@ -301,6 +301,8 @@ public class ArrayPractice {
 //				6번째 문자열 : 영단어600
 //				더 값을 입력하시겠습니까?(Y/N) : n
 //				[자바의 정석, 알고리즘, C프로그래밍, 인간관계, 자기계발, 영단어600]
+		
+		
 		Scanner sc = new Scanner(System.in);
 		
 		// 1) next() : 한 단어 (띄어쓰기, 엔터를 만나면 입력 종료)
@@ -311,7 +313,7 @@ public class ArrayPractice {
 		//    nextLine() : hello world(엔터) -> hello world(엔터) -> (엔터 제거)
 		//    
 		//    nextInt()  :     100(엔터)     ->    100 (n이 남아있음)
-		//   (다음 정수)
+		//    (다음 정수)
 		//  ** next, nextDouble(), nextInt() 등
 		//     모두 입력 버퍼에서 (엔터)를 제외 하고 내용만 읽어옴 **
 		
@@ -322,7 +324,7 @@ public class ArrayPractice {
          int a = sc.nextInt();
          // 100     입력버퍼 : [ (엔터) ]  // 버퍼에 enter가 남아있다 
          
-         System.out.println("nextLine() : "); // 입력버퍼 : [ a b c(엔터)
+         System.out.println("nextLine() : "); // 입력버퍼 : [ a b c(엔터)]
          // a b c    // 입력버퍼 : [ (엔터) ]
          
          System.out.println("종료");
@@ -333,22 +335,62 @@ public class ArrayPractice {
          // [해결방법]
          // 입력을 위한 nextLine() 수행 전
          // 입력 버퍼에서 (엔터)를 제거
-         // -> 빈 공간에 nextLine() 구문을 한번 작성하면 (엔터가) 제거됨  */
+         // -> 빈 공간에 nextLine() 구문을 한번 작성하면 (엔터가) 제거됨  ***********/
          
-		
+		// 1. 첫 배열 크기 지정 
 		System.out.print("배열의 크기를 입력하세요 : ");
-		int size = sc.nextInt();
-		sc.nextLine(); // 입력 버퍼에 남은 개행문자(엔터 제거)
+		int size = sc.nextInt(); // 입력 버퍼에 개행문자(엔터)가 남음
+		sc.nextLine(); // 입력 버퍼에 남은 개행문자(엔터) 제거
 		
-		
+		// 2. 첫 배열 생성
 		String[] arr = new String[size];
 
 		// 3. 첫 배열에 저장할 문자열 입력 받기
 		for(int i=0;i<arr.length;i++) {
 			System.out.printf("%d번째 문자열 : ",i+1);
-			arr[i] = sc.nextLine();
+			arr[i] = sc.nextLine(); // 입력 버퍼에 남은 개행문자(엔터) 제거
 		}
-	
+		
+	         /* 4. n이 입력될 때 까지 무한 반복 -> n 입력 시 break
+	          while(true) {
+	          
+	          System.out.print("더 값을 입력하시겠습니까?(Y/N) :  ");
+	          char ch = sc.nextLine().charAt(0);
+	          
+	          if(ch == 'N') {
+	             break;
+	          }
+	          
+	          // 5. 더 입력 받을 개수 입력
+	          System.out.print("더 입력하고 싶은 개수 : ");
+	          int addSize = sc.nextInt();
+	          sc.nextLine(); // 입력 버퍼 개행문자 제거
+	          
+	          // 6. 기존 배열보다 늘어난 개수만큼 큰 새 배열 생성
+	          String newBooks[] = new String[books.length + addSize];
+	          
+	          // 7. 깊은 복사를 통해 기존 배열 내용을 새 배열로 복사
+	          System.arraycopy(books, 0, newBooks, 0, books.length);
+	          
+	          
+	          // 8. 새 배열의 빈칸 부터 새로운 입력을 받아서 저장
+	          for(int i=books.length ; i<newBooks.length ; i++) {
+	             System.out.print( (i+1) + "번째 문자열 : " );
+	             newBooks[i] = sc.nextLine();
+	          }
+	          
+	          // 9. 기존 참조배열 books에 newBooks의 주소를 얕은 복사
+	          books = newBooks;
+	          
+	       } // while 종료
+	       
+	       // 10. 배열에 저장된 모든 값 출력
+	       System.out.println(Arrays.toString(books));
+	       
+	       
+	    }  */
+		
+	    // 4~10 다른 풀이
 		while(true) {
 			System.out.print("더 값을 입력하시겠습니까?(Y/N): ");
 			String sel = sc.next();
