@@ -50,7 +50,9 @@ public class CarService {
 		Car c1 = new LightCar();
 
 //		c1.print();
-//		c1.getDiscountOffer();
+//		c1.getDiscountOffer(); 
+		// print, getDiscountOffer은 LightCar객체 것이어서 c1으로 소환 불가
+		// c1은 LightCar를 참조하는 Car부분만 참조 가능하기 때문!
 		
 		
 		// LightCar로 c1을 강제 형변환
@@ -70,7 +72,7 @@ public class CarService {
 	}
 	
 	public void ex3() {
-		// 다형성(업캐스팅, 다운캐스팅) + 객체 배열
+		// *다형성(업캐스팅, 다운캐스팅) + 객체 배열 + instanceof*
 		// 자동차 관리 프로그램
 		
 		// Car 1차원 배열 == Car 참조변수의 묶음
@@ -94,9 +96,9 @@ public class CarService {
 	    	/* instanceof 연산자 */
 	    	// - 참조하는 객체의 타입을 검사하는 연산자
 	    	
-	    	// ex) 참조변수a instanceof 클래스명
+	    	// ex) 참조변수 instanceof 클래스명
 	    	//     -> 참조변수가 참조하는 객체 타입과 
-	    	//        클래스의 타입이 일치하면 true, false
+	    	//        클래스의 타입이 일치하면 true, false 결과 반환
 	    	
 	    	if( c instanceof Truck) {
 	    		// c가 참조하는 객체가 Truck 객체일 경우
@@ -109,7 +111,7 @@ public class CarService {
 	    		// ex) LightCar 객체를 Truck 참조변수 참조하려고 할 때
 	    		
 	    		// 해결 방법 :
-	    		// instanceof를 통해 참조하는 객체의 자료형ㅇ르 판단하여
+	    		// instanceof를 통해 참조하는 객체의 자료형을 판단하여
 	    		// 적절한 형식으로 다운 캐스팅 진행
 	    		
 	    	} else if (c instanceof LightCar) {
@@ -125,8 +127,6 @@ public class CarService {
 	    	
 	    }
 	}
-	
-	
 
 	public void ex4() {
 		
