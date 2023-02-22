@@ -25,11 +25,11 @@ public class ArrayPracticeRun {
 //		ap.practice15();//o
 //		ap.practice16();//o
 //		ap.practice17();//o
-//		ap.practice18();//o 다시보기
+//		ap.practice18();//o 다시해보기
 //		ap.practice19();//o
 //		ap.practice20();//o
 //		ap.practice21();//o int index 활용 
-		ap.practice22();
+//		ap.practice22();
 //		ap.practice23();
 //		ap.practice24();
 //		ap.practice25();

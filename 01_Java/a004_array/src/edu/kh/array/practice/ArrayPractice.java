@@ -464,7 +464,8 @@ public class ArrayPractice {
 		 * int[][] array = new int[4][4]; int sum = 0;
 		 * 
 		 * for(int i=0; i<array.length-1; i++) { for(int x=0; x<array.length-1; x++) {
-		 * array[i][x] = (int)(Math.random()*10+1); array[i][3] += array[i][x];
+		 * array[i][x] = (int)(Math.random()*10+1); array[3][3] += array[i][x];
+		 * 
 		 * array[3][x] += array[i][x]; System.out.printf("%3d", array[i][x]); sum +=
 		 * array[i][x]; }System.out.printf("%3d", array[i][3]); System.out.println();
 		 * 
@@ -480,12 +481,12 @@ public class ArrayPractice {
 			}
 
 		for (int i = 0; i < arr.length - 1; i++)
-			for (int j = 0; j < arr.length - 1; j++)
+			for (int j = 0; j < arr.length - 1; j++) {
 				arr[i][arr.length - 1] += arr[i][j];
+		        arr[arr.length - 1][i] += arr[j][i];
+			}
 
-		for (int i = 0; i < arr.length - 1; i++)
-			for (int j = 0; j < arr.length - 1; j++)
-				arr[arr.length - 1][i] += arr[j][i];
+		// 출력용 2중 for문
 		for (int i = 0; i < arr.length; i++) {
 			for (int j = 0; j < arr.length; j++)
 				System.out.printf("%3d", arr[i][j]);
