@@ -128,7 +128,7 @@ public class CarService {
 	    }
 	}
 
-	public void ex4() {
+	public void ex4() { /***********여기부터 다시 보기*****************/
 		
 		// 객체 배열 + 다형성(업캐스팅/다운캐스팅) + instanceof
 		// + 매개변수 다형성 + 바인딩(정적/동적)
