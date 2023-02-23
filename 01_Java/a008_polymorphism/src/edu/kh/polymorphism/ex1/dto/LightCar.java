@@ -23,7 +23,7 @@ public class LightCar extends Car {
 
 	@Override
 	public String toString() {
-		return super.toString() + " / " + " / 할인율 : " + discountOffer*100 + "%";
+		return super.toString() + " / " + "할인율 : " + discountOffer*100 + "%";
 	}
 	
 	public void print() {

@@ -128,7 +128,7 @@ public class CarService {
 	    }
 	}
 
-	public void ex4() { /***********여기부터 다시 보기*****************/
+	public void ex4() { 
 		
 		// 객체 배열 + 다형성(업캐스팅/다운캐스팅) + instanceof
 		// + 매개변수 다형성 + 바인딩(정적/동적)
@@ -145,11 +145,11 @@ public class CarService {
 //			printCar(Car객체 주소 또는 Car를 상속받은 객체 주소); 를 호출
 			printCar(c);
 		}
-		
+		// printCar(new Truck());
 	}
 	
 	// 차량 정보를 출력하는 메서드
-	public void printCar(Car c) {
+	public void printCar(Car c) { // 매개변수를 통해 c (carList[0],[1],[2]) 가 넘어옴
 		String type = null;
 		
 		// 매개변수로 전달 받은 c가 참조하는 객체에 따라서
@@ -159,23 +159,25 @@ public class CarService {
 		else type = "[Car]";
 		
 		System.out.println(type + "에 대한 정보입니다.");
-	    System.out.println(c.toString()); // 실제로 찾아가보면 truck의 toString 실행
+	    System.out.println(c.toString()); // 오버라이딩. 
 	    // String edu.kh.polymorphism.ex1.dto.Car.toString()
-	    
+	    // 하지만 실제로 찾아가보면 Truck/LightCar의 toString() 실행
+	    // ↓
 	    // 바인딩 : 메서드 호출 구문과
 	    //          수행될 메서드를 연결하는 것 (묶는 것)
-	    // 정적 바인딩
-	    // - "프로그램 실행 전" 컴파일 단계에서
-	    //    메서드 호출부와 수행될 메서드를 묶는 것
 	    
-	    // - 참조변수의 자료형을 기준으로 연결함.
+	    // 정적 바인딩
+	    // - "*프로그램 실행 전*" 컴파일 단계에서
+	    //    메서드 호출부와 수행될 메서드를 묶는 것
+	    //    String edu.kh.polymorphism.ex1.dto.Car.toString()
+	    // -  참조변수의 자료형을 기준으로 연결함.(ex. c의 타입 Car끼리 묶자)
 	    
 	    // 동적 바인딩
-	    // - "프로그램 실행 중"
+	    // - "*프로그램 실행 중*"
 	    //    실행할 당시의 객체의 자료형을 기준으로 
 	    //    메서드 호출부와 수행될 메서드를 묶는 것
-	    
-	    // -  참조하는 객체의 자료형을 기준으로 연결함
+	    // -  *참조하는 객체의 자료형*을 기준으로 연결함
+	    //     c가 참조하는 것 따라가보니까 Truck에 오버라이딩한 toString() 있음.
 	    
 	}
 	
@@ -197,16 +199,17 @@ public class CarService {
 		System.out.println("2. 경차");
 		System.out.println("3. 자동차");
 		
-		Car c = createCar(sc.nextInt());
+		Car c = createCar(sc.nextInt()); // 여기서 입력된 정수를 아래 createCar의 매개변수로 보냄
+		                                 // 아래에서 switch구문 실행 후 return 값 다시 받을 거임
 		
 		System.out.println("차가 생성되었습니다.");
 	}
 	
 	// 반환형에 다형성(업캐스팅) 적용
-	public Car createCar(int num) {
+	public Car createCar(int num) { // Car의 자식 객체 Truck/LightCar객체가 반환될 수 있음
 		
 		switch(num) {
-		case 1 : return new Truck();
+		case 1 : return new Truck(); // Truck 주소 만들어서 반환해라.
 		case 2 : return new LightCar();
 		case 3 : return new Car();
 		}

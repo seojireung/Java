@@ -7,7 +7,7 @@ public class CarRun {
 		
 		CarService service = new CarService();
 		
-	    service.ex5();
+	    service.ex4();
 		
 		
 		
