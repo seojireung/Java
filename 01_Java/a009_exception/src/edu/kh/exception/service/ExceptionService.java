@@ -108,7 +108,7 @@ public class ExceptionService {
 		// catch(Exception e) {} 
 		
 		catch (ArithmeticException e) {
-			     // 산술적 예뢰를 잡아 처리
+			     // 산술적 예외를 잡아 처리
 			System.out.println("0으로 나눌 수 없습니다");
 			
 		} catch(/*InputMismatch*/Exception e) {
