@@ -139,6 +139,8 @@ public class StudentService { //백엔드
 		}
 		return list;
 	}
+	
+
 
 	/**
 	 * 성적 순서 조회 서비스
