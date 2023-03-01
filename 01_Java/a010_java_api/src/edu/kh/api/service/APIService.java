@@ -81,7 +81,7 @@ public class APIService {
 			// s가 참조하는 학생과
 			// temp가 참조하는 학생이
 			// 필드값이 같을 경우 (s와 temp가 동등한 경우)
-//			if(s.equals(temp)) return false;
+			if(s.equals(temp)) return false;
 
 			System.out.println(s.hashCode());
 			System.out.println(temp.hashCode());
