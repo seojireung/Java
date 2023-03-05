@@ -22,8 +22,8 @@ public class StudentService { //백엔드
 	}
 	
 	/* 학생 정보 추가 서비스
-	 * @param ??????
-	 * @return ??????
+	 * @param std
+	 * @return true
 	 * */
 	public boolean addStudent(Student std) {
 		return studentList.add(std);

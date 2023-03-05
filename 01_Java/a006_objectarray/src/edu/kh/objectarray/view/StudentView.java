@@ -53,7 +53,7 @@ public class StudentView {
 	}
 
 
-	/** 1. 학생 정보 추가*/
+	/** 1. 학생 정보 추가 */
 	private void addStudent() {
 		
 		System.out.println("[학생 추가]");
@@ -67,7 +67,7 @@ public class StudentView {
 		String name = sc.next();
 		
 		// 학생 추가 서비스 호출
-		boolean result = service.addStudent(grade,  classRoom, number, name);
+		boolean result = service.addStudent(grade, classRoom, number, name);
 		
 		if(result) {//true인 경우 == 학생 추가 성공
 			System.out.println(name + " 학생이 추가되었습니다!");
@@ -88,7 +88,7 @@ public class StudentView {
 		
 		//***************************************************
 		// 매개변수, 반환값으로 참조변수가 사용될 경우
-		// 참조하고 잇는 주소가 복사됨!!!! --> 얕은 복사
+		// 참조하고 있는 주소가 복사됨!!!! --> 얕은 복사
 		//***************************************************
 		Student[] studentList = service.selectAll(); //얕은 복사
 		
