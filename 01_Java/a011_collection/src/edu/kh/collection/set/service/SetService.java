@@ -69,10 +69,10 @@ public class SetService {
 		// 1. Iterator (반복자)
 		
 		// * 코드 설명에 iterator, iterable 단어가 포함되어 있다면
-		//   반복 접근이(순차 접근)이 가능하다고 판단 *
+		//   반복 접근이(순차 접근)이 가능하다고 판단 *	
 		
 		// - 컬렉션에서 제공하는 컬렉션 객체의 요소를 반복 접근하는 객체
-		// 저장된 객체를 한번씩 거내주는 반복자
+		// 저장된 객체를 한번씩 꺼내주는 반복자
 		
 		Iterator<String> it = set.iterator();
 		// Set 객체에는 반복자 Iterator 객체가 붙어있다고 생각!
