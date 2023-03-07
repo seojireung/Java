@@ -131,7 +131,7 @@ public class StudentService {
 	 */
 	public boolean updateStudent(int index, int kor, int eng, int math) {
 		
-		// 문제가 없을 경우 index번째 학생의 점수를 수정 후 true 반환 /*다시 이해하기*/
+		// 문제가 없을 경우 index번째 학생의 점수를 수정 후 true 반환 
 		studentArr[index].setKor(kor);
 		studentArr[index].setEng(eng);
 		studentArr[index].setMath(math);

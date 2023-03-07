@@ -19,6 +19,7 @@ public class TestRun {
 		// - 부모 클래스가 가지고 있는 필드, 메서드를  
 		//   자식 클래스가 자신의 것처럼 사용 가능하게 하는 기술
 		
+		//child1 매개변수 생성자에서 초기화
 		System.out.println(c1.getMoney());
 		System.out.println(c1.getLastName());
 
