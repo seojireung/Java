@@ -10,7 +10,7 @@ public class ExceptionRun {
 		
 		ExceptionService service = new ExceptionService();
 		
-		service.StartEx5();
+		service.methodA();
 		
 	}
 
