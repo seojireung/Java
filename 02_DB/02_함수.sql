@@ -212,7 +212,7 @@ SELECT 1000000,
 FROM DUAL;
 
 -- EMPLOYEE 테이블에서
--- 사번, 이름, 연봉 조회(\100,000,000 형식으로 조회)
+-- 사번, 이름, 연봉 조회(₩100,000,000 형식으로 조회)
 SELECT EMP_ID, EMP_NAME, 
 	TO_CHAR(SALARY*12, 'L999,999,999') 연봉
 FROM EMPLOYEE;
