@@ -4,8 +4,8 @@
 --오늘-입사일의 별칭은 "근무일수2"로 하고
 --모두 정수(내림)처리, 양수가 되도록 처리
 SELECT EMP_NAME 사원명,
-	CEIL(ABS(HIRE_DATE - SYSDATE)) 근무일수1,
-	CEIL(SYSDATE - HIRE_DATE) 근무일수2
+	FLOOR(ABS(HIRE_DATE - SYSDATE)) 근무일수1,
+	FLOOR(SYSDATE - HIRE_DATE) 근무일수2
 FROM EMPLOYEE;
 
 --문제2
@@ -14,15 +14,18 @@ FROM EMPLOYEE;
 --사번, 이름, 이메일, 전화번호 조회
 SELECT EMP_ID ,EMP_NAME ,EMAIL ,PHONE 
 FROM EMPLOYEE
-WHERE MOD(EMP_ID, 2)=1;
+WHERE MOD(EMP_ID, 2)=1; -- 더 효율적
+--*다른답* WHERE SUBSTR(EMP_ID, -1, 1) IN (1,3,5,7,9)
 
 --문제3
 --EMPLOYEE 테이블에서
 --근무한지 20년 이상인 사원의
 --모든 정보 조회
-SELECT *
-FROM EMPLOYEE
+SELECT * FROM EMPLOYEE
 WHERE FLOOR(SYSDATE - HIRE_DATE)/365 >= 20;
+--*다른답* WHERE EXTRACT (YEAR FROM SYSDATE)
+-- 	   		 - EXTRACT(YEAR FROM HIRE_DATE)>=20
+--*다른답* WHERE MONTHS_BETWEEN(SYSDATE,HIRE_DATE)/12>=20 --가장 효율
 
 --문제4
 --EMPLOYEE 테이블에서
@@ -30,7 +33,9 @@ WHERE FLOOR(SYSDATE - HIRE_DATE)/365 >= 20;
 --단, 주민번호 9번째 자리부터 끝까지는 '*'문자로 채움
 --예 : 홍길동 771120-1******
 SELECT EMP_NAME, 
-	REPLACE(EMP_NO, (SUBSTR(EMP_NO, 9, 6)),'******') 주민등록번호
+	REPLACE(EMP_NO, (SUBSTR(EMP_NO, 9)),'******') 주민등록번호
+--  SUBSTR(EMP_NO, 1,8) || '******' 주민등록번호 *다른답1*
+--  RPAD(SUBSTR(EMP_NO,1,8),14,'*') 주민등록번호 *다른답2*	
 FROM EMPLOYEE;
 
 --문제5
@@ -39,7 +44,8 @@ FROM EMPLOYEE;
 --단, 연봉은 보너스가 적용된 1년치 급여 + ₩57,000,000 으로 표시
 --(급여 + (급여 * 보너스) )* 12
 SELECT EMP_NAME, JOB_CODE, 
-	TO_CHAR((SALARY+(SALARY*NVL(BONUS,0)))*12 , 'L999,999,999') AS "연봉(원)"
+	TO_CHAR((SALARY+(SALARY*NVL(BONUS,0)))*12 , 'L999,999,999') 
+	AS "연봉(원)"
 FROM EMPLOYEE;
 
 --문제6
@@ -51,7 +57,9 @@ FROM EMPLOYEE
 WHERE (DEPT_CODE = 'D5'OR DEPT_CODE = 'D9')
 	AND HIRE_DATE >= '2004/01/01'
 	AND HIRE_DATE <= '2004/12/31';
-
+--*다른답1* WHERE DEPT_CODE IN('D5','D9');
+--        AND EXTRACT(YEAR FROM HIRE_DATE) = 2004; --효율
+--*다른답2* AND TO_CHAR(HIRE_DATE, 'YYYY') = 2004;
 
 --문제7
 --EMPLOYEE 테이블에서
@@ -61,6 +69,7 @@ SELECT EMP_NAME, HIRE_DATE,
 	EXTRACT(DAY FROM (LAST_DAY(HIRE_DATE)))
 	-EXTRACT(DAY FROM HIRE_DATE) +1
 	AS "입사한 달의 근무 일수"
+--*효율답*LAST_DAY(HIRE_DATE)-HIRE_DATE+1 "입사한 달의 근무 일수" --이게 왜 되지
 FROM EMPLOYEE;
 
 
@@ -76,4 +85,6 @@ SELECT EMP_NAME, DEPT_CODE,
 /*생년월일2*/TO_CHAR(TO_DATE
 		  (SUBSTR(EMP_NO,1,6)),'YY"년 "MM"월 "DD"일"') 생년월일,
 /*만 나이*/ FLOOR((SYSDATE-(TO_DATE(SUBSTR(EMP_NO,1,6))))/365) "만 나이"
+-- ㄴ 윤년 때문에 오차 생김!
+--*정답*FLOOR(MONTHS_BETWEEN(SYSDATE,TO_DATE(SUBSTR(EMP_NO,1,6)))/12) "만 나이"
 FROM EMPLOYEE;
