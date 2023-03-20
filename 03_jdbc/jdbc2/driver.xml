@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>driver.xml file입니다.</comment>
+
+	<entry key="driver">oracle.jdbc.driver.OracleDriver</entry>
+	
+	<!-- 각자 컴퓨터에 설치된 DB(19c) -->
+	<entry key="url">jdbc:oracle:thin:@localhost:1521:ORCL</entry>
+	
+	<entry key="user">kh_sjy</entry>
+	<entry key="pw">oracle_sjy5599</entry>
+	
+</properties>
+
+
