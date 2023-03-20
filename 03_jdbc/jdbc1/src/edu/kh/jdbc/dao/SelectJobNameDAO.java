@@ -15,7 +15,7 @@ public class SelectJobNameDAO {
 	
 	
 	/**
-	 * @param jobName
+	 * @param inputJobName
 	 * @return empList
 	 */
 	public List<Employee2> select(String inputJobName) {
