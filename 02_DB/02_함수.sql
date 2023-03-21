@@ -271,7 +271,7 @@ SELECT 20230308, TO_DATE(20230308) FROM DUAL;
 -- 년도를 짧게 해석하는 경우
 -- 50미만 : Y,R 둘다 앞부분에 현재 세기(21C = 2000년대)를 적용
 -- 50 이상 : Y == 현재 세기(2000년대)
-            R == 이전 세기(1900년대)
+--          R == 이전 세기(1900년대)
 
 -- 1949-01-15
 -- 1950-01-15
@@ -370,7 +370,7 @@ FROM EMPLOYEE;
 
 SELECT EMP_ID, EMP_NAME, SALARY,
 	CASE 
-		WHEN SALARY >= 5000000 THEN '고급' /*범위 처리 다시 보기*/
+		WHEN SALARY >= 5000000 THEN '고급' 
 		WHEN SALARY >= 3000000 THEN '중급'
 		-- 앞에서 500만 이상 범위 처리 되어 제외하면 됨(if문)
 		ELSE '초급'
@@ -432,16 +432,16 @@ WHERE DEPT_CODE IS NOT NULL; -- 이렇게도 가능
 SELECT COUNT(DISTINCT JOB_CODE) FROM EMPLOYEE; --7(중복 제외하고 카운트)
 
 -- EMPLOYEE 테이블에 남자 사원 수 조회
-SELECT COUNT(*),
+SELECT COUNT(*)
 FROM EMPLOYEE
-WHERE SUBSTR(EMP_NO,8,1)='1';
+WHERE SUBSTR(EMP_NO, 8, 1) = '1' ;
 
 -- EMPLOYEE 테이블에 여자 사원 수
-SELECT COUNT(*),
+SELECT COUNT(*)
 FROM EMPLOYEE
 WHERE SUBSTR(EMP_NO,8,1)='2';
 
--- EMPLOYEE 테이블에 남자 사원 수, 여자 사원 수 조회 *****다시보기*****
+-- EMPLOYEE 테이블에 남자 사원 수, 여자 사원 수 조회 
 SELECT COUNT(DECODE(SUBSTR(EMP_NO,8,1),'1',1,NULL)) "남자 사원 수",
 	   COUNT(DECODE(SUBSTR(EMP_NO,8,1),'2',1,NULL)) "여자 사원 수"
 FROM EMPLOYEE;

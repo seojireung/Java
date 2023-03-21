@@ -189,7 +189,7 @@ INSERT INTO V_DCOPY2 VALUES('D0','기획팀','L3');
   [MAXVALUE 숫자 | NOMAXVALUE] -- 발생시킬 최대값 지정 (10의 27승 -1)
   [MINVALUE 숫자 | NOMINVALUE] -- 최소값 지정 (-10의 26승)
   [CYCLE | NOCYCLE] -- 값 순환 여부 지정 (-시작값은 MINVALUE로 지정)
-  [CACHE 바이트크기 | NOCACHE] -- 캐쉬메모리(미리 공간 지정)
+  [CACHE 바이트크기 | NOCACHE] -- 캐쉬메모리(미리 공간 지정할 지)
   								기본값은 20바이트, 최소값은 2바이트
 
 -- 시퀀스의 캐시 메모리는 할당된 크기만큼 미리 다음 값들을 생성해 저장해둠
