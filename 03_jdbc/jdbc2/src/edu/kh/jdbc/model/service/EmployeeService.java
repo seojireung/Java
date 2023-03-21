@@ -1,7 +1,7 @@
 package edu.kh.jdbc.model.service;
 
 // JDBCTemplate에 있는 static 메서드를 가져와 자신의 것처럼 사용
-import static edu.kh.jdbc.common.JDBCTemplate.close;
+import static edu.kh.jdbc.common.JDBCTemplate.*;
 import static edu.kh.jdbc.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
@@ -102,13 +102,78 @@ public class EmployeeService {
 	 * @return empList
 	 * @throws SQLException
 	 */
-	public List<Employee> selectSalaryRange(int minSal, int maxSal) throws SQLException{
+	public List<Employee> selectSalary(int minSal, int maxSal) throws SQLException{
 		
 		Connection conn = getConnection();
-		List<Employee> empList = dao.selectSalaryRange(conn,minSal,maxSal);
+		List<Employee> empList = dao.selectSalary(conn,minSal,maxSal);
 		close(conn);
 		
 		return empList;
+	}
+
+	/** 사원 추가 서비스
+	 * @param conn, emp
+	 * @return result
+	 * @throws SQLException
+	 */
+	public int insertEmployee(Employee emp) throws SQLException {
+		
+		Connection conn = getConnection();
+		int result = dao.insertEmployee(conn, emp);
+		
+		// DAO에서 DML(INSERT) 수행
+		// -> 트랜잭션에 임시 저장
+		// -> 수행 결과에 따라 commit, rollback 지정
+		
+		if(result>0) // 삽입 성공 시
+			commit(conn);
+		else // 삽입 실패 시
+			rollback(conn);
+		
+		// 4. 커넥션 반환
+		close(conn);
+		
+		// 5. 결과 반환
+		return result;
+	}
+
+	/** 회원 정보 수정 서비스
+	 * @param conn, emp
+	 * @return result
+	 * @throws SQLException
+	 */
+	public int updateEmployee(Employee emp) throws SQLException {
+		
+		Connection conn = getConnection();
+		
+		int result = dao.updateEmployee(conn, emp);
+		
+		// DML 수행 -> 트랜잭션(COMMIT / ROLLBACK) 제어 처리
+		if(result>0) commit(conn);
+		else rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
+	/** 사번으로 퇴사 처리 서비스
+	 * @param conn, input
+	 * @return result
+	 * @throws Exception
+	 */
+	public int retireEmployee(int input) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int result = dao.retireEmployee(conn, input);
+		
+		if(result>0) commit(conn);
+		else 		 rollback(conn);
+		
+		close(conn);
+		
+		return result;
 	}
 	
 	

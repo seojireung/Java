@@ -19,7 +19,7 @@ public class JDBCTemplate {
 	 * - JDBC 객체 자원 반환 구문(close)
 	 * - commit, rollback 구문
 	 * - auto commit 기능 off
-	 * 
+	 * - 중복 제거, 간편
 	 * 
 	 * * 어디서든 클래스명.메서드명으로 호출 가능하도록
 	 *   public static으로 작성 *

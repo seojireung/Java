@@ -1,6 +1,6 @@
 package edu.kh.jdbc.model.dto;
 
-// DTO(Data Transfer Object) : 값 전달용 객체
+// DTO(Data Transfer Object) : 값 전달용 객체 (바구니)
 public class Employee {
 
 	private int empId; // 사원 번호(사번)
@@ -33,14 +33,31 @@ public class Employee {
 		this.jobName = jobName;
 	}
 	
-	public Employee(int empId, String empName, String phone, String departmentTitle, String jobName, int salary) {
+	public Employee(int empId, String empName, String jobName, int salary) {
 		super();
 		this.empId = empId;
 		this.empName = empName;
-		this.phone = phone;
-		this.departmentTitle = departmentTitle;
 		this.jobName = jobName;
 		this.salary = salary;
+	}
+
+
+	
+	
+
+	public Employee(String empName, String empNo, String email, String phone, int salary, String deptCode,
+			String jobCode, String salLevel, double bonus, int managerId) {
+		super();
+		this.empName = empName;
+		this.empNo = empNo;
+		this.email = email;
+		this.phone = phone;
+		this.salary = salary;
+		this.deptCode = deptCode;
+		this.jobCode = jobCode;
+		this.salLevel = salLevel;
+		this.bonus = bonus;
+		this.managerId = managerId;
 	}
 
 
