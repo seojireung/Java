@@ -36,7 +36,7 @@ CARTESIAN PRODUCT
 
 -- 기존에 서로 다른 테이블의 데이터를 조회 할 경우 아래와 같이 따로 조회함.
 
--- 직원번호, 직원명, 부서코드, 부서명을 조회 하고자 할 때
+-- 직원번호, 직원명, 부서코드, 부서명을 조회 하고자 할 때 
 SELECT EMP_ID, EMP_NAME, DEPT_CODE
 FROM EMPLOYEE;
 -- 직원번호, 직원명, 부서코드는 EMPLOYEE테이블에 조회가능
