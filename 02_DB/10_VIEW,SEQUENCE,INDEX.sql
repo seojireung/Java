@@ -90,7 +90,7 @@ CREATE TABLE DEPT_COPY2
 AS SELECT * FROM DEPARTMENT;
 
 SELECT * FROM DEPT_COPY2;
-
+                                              
 -- DEPT_COPY2에서
 -- DEPT_ID, LOCATION_ID 컬럼만 조회하는
 -- VIEW 생성
