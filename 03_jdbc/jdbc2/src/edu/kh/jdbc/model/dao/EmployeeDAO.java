@@ -291,7 +291,6 @@ public class EmployeeDAO {
 		
 		// 1. 결과를 저장할 변수/객체 선언
 		int result = 0; // (0행은 실패 의미)
-		// int result = 0;
 		
 		try {
 			// 2. PreparedStatement 객체 생성
@@ -299,12 +298,10 @@ public class EmployeeDAO {
 			// 1) SQL 작성
 			String sql = "INSERT INTO EMPLOYEE VALUES(SEQ_EMP_ID.NEXTVAL,"
 					+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, SYSDATE, NULL, 'N')";
-			//String sql = "Insert int employee calues *skekjk???fdlflfl
 			
 			// 2) PreparedStatement 객체 생성 후 placeholder에 값 세팅
 			
 			pstmt = conn.prepareStatement(sql);
-			// pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, emp.getEmpName());
 			pstmt.setString(2, emp.getEmpNo());
@@ -317,16 +314,11 @@ public class EmployeeDAO {
 			pstmt.setDouble(9, emp.getBonus());
 			pstmt.setInt(10, emp.getManagerId());
 			
-			/*pstmt.setString(1, emp.getEmpName());
-			 * pstmt.setString(2,emp.getEmpNo));
-			 * pstmt.setStirngkkd
-			 * pstmt.setInt(8, emp.getSalary());*/
 			
 			// 3) SQL 수행 후 결과 반환받기
 			// executeQuery() : SELECT 수행 후 ResultSet 반환
 			// executeUpdate() : DML(insert,update,delete) 수행 후 결과 행의 개수 반화
 			result = pstmt.executeUpdate();
-			//result = pstmt.executeUpdate();
 			
 			// ** SELECT와 다르게 옮겨 담는 과정이 없다! **
 			
@@ -336,7 +328,6 @@ public class EmployeeDAO {
 			// -> Statement를 close() 하는 메서드 호출
 			// 	 (★매개변수에 다형성 업캐스팅 적용)
 			
-			//close(pstmt);
 
 		}
 		// 결과 반환
@@ -347,7 +338,7 @@ public class EmployeeDAO {
 	/** 사원 정보를 수정하는 SQL 수행 후 결과 행 개수 반환하는 메서드
 	 * @param conn
 	 * @param emp
-	 * @return
+	 * @return result
 	 * @throws SQLException
 	 */
 	public int updateEmployee(Connection conn, Employee emp) throws SQLException {
