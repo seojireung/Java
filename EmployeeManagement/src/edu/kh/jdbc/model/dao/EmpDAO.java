@@ -320,6 +320,43 @@ public class EmpDAO {
 		
 		return check;
 	}
+	
+
+	/** 가장 최근 입사한 사원 5명 조회
+	 * @param conn
+	 * @return empList
+	 * @throws SQLException
+	 */
+	public List<Emp> mostRecentFive(Connection conn) throws SQLException {
+		List<Emp> empList = new ArrayList<>();
+		
+		try {
+			String sql = "SELECT * FROM\n"
+					+ "	(SELECT EMP_ID, EMP_NAME, HIRE_DATE, NVL(DEPT_TITLE,'부서없음') DEPT_TITLE\n"
+					+ "	FROM EMPLOYEE\n"
+					+ "	LEFT JOIN DEPARTMENT ON (DEPT_CODE = DEPT_ID) --NULL값 포함하기 위해\n"
+					+ "	ORDER BY HIRE_DATE DESC)\n"
+					+ "WHERE ROWNUM <=5";
+			
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				int empId = rs.getInt(1);
+				String empName = rs.getString(2);
+				Date hireDate = rs.getDate(3);
+				String departmentTitle = rs.getString(4);
+				
+				empList.add(new Emp(empId,empName,hireDate,departmentTitle));
+			}
+			
+		} finally {
+			close(rs);
+			close(stmt);
+		}
+		
+		return empList;
+	}
 
 
 	/** 부서별 통계 조회 SQL 수행 후 결과 반환
@@ -365,6 +402,8 @@ public class EmpDAO {
 		//5. 결과 반환
 		return mapList;
 	}
+
+
 	
 	
 	

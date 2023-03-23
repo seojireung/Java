@@ -2,6 +2,10 @@ package edu.kh.jdbc.model.dto;
 
 import java.sql.Date;
 
+/**
+ * @author jy_green
+ *
+ */
 public class Emp {
 	private int empId; 		// 사원 번호(사번)
 	private String empName; // 사원 이름
@@ -59,6 +63,18 @@ public class Emp {
 		this.bonus = bonus;
 		this.managerId = managerId;
 	}
+	
+	
+
+	public Emp(int empId, String empName, Date hireDate, String departmentTitle) {
+		super();
+		this.empId = empId;
+		this.empName = empName;
+		this.hireDate = hireDate;
+		this.departmentTitle = departmentTitle;
+	}
+
+
 
 	public int getEmpId() {
 		return empId;

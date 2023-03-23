@@ -109,7 +109,7 @@ public class EmpView {
 				case 5: updateInfo(); break;
 				case 6: deleteInfo(); break;
 				case 7: retireEmployee(); break;
-				case 8:  break;
+				case 8: mostRecentFive(); break;
 				case 9: selectDepartment(); break;
 				case 0: System.out.println("\n[프로그램을 종료합니다...]\n"); break;
 				
@@ -417,6 +417,31 @@ public class EmpView {
 	}
 	
 	// 8번 만들기
+	/**
+	 * 가장 최근 입사한 사원 5명 조회
+	 */
+	private void mostRecentFive() {
+		System.out.println("\n----- 가장 최근 입사한 사원 5명 조회 ----- \n");
+		
+		try {
+			List<Emp> empList = service.mostRecentFive();
+			if(empList.isEmpty()) {
+				System.out.println("[사원이 존재하지 않습니다.]");
+				return;
+			}
+			for(Emp emp : empList) {
+				System.out.printf("%d / %s / %s / %s\n",
+						emp.getEmpId(),
+						emp.getEmpName(),
+						emp.getHireDate(),
+						emp.getDepartmentTitle());
+			}
+		} catch (SQLException e) {
+			System.out.println("\n[가장 최근 입사한 사원 5명 정보 조회 중 예외 발생]\n");
+			e.printStackTrace();
+		}
+		
+	}
 	
 	/**
 	 * 부서별 통계 조회

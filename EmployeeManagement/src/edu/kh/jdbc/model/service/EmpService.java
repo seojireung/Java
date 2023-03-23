@@ -138,7 +138,17 @@ public class EmpService {
 	}
 
 	// 8번
-	
+	/** 가장 최근 입사한 사원 5명 조회
+	 * @return empList
+	 * @throws SQLException
+	 */
+	public List<Emp> mostRecentFive() throws SQLException {
+		Connection conn = getConnection();
+		List<Emp> empList = dao.mostRecentFive(conn);
+		close(conn);
+		
+		return empList;
+	}
 	
 	/** 부서별 통계 조회 서비스
 	 * @return mapList
@@ -154,4 +164,6 @@ public class EmpService {
 		
 		return mapList;
 	}
+
+	
 }
