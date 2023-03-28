@@ -253,7 +253,6 @@ public class MemberView {
 			
 			// 'Y', 'N' 이 아닌 경우
 			System.out.println("\n*** 잘못 입력 하셨습니다 ***\n");
-			return false; //확인해보고 필요없음 지우기
 		}
 		
 		try {
