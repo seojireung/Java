@@ -1,6 +1,6 @@
 package edu.kh.jdbc.model.dao;
 
-import static edu.kh.jdbc.common.JDBCTemplate.close;
+import static edu.kh.jdbc.common.JDBCTemplate.*;
 
 import java.sql.Connection;
 import java.sql.Date;

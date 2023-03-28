@@ -59,7 +59,7 @@ public class SelectDepartmentTitleDAO {
 	                  + "FROM EMPLOYEE "
 	                  + "LEFT JOIN DEPARTMENT ON(DEPT_CODE = DEPT_ID) "
 	                  + condition
-//다시보기(부서가null일때) + "WHERE DEPT_TITLE = '" + departmentTitle + "'"
+// (부서 null 고려 x)   + "WHERE DEPT_TITLE = '" + departmentTitle + "'"
 	                  + " ORDER BY EMP_ID";
 			
 			stmt = conn.createStatement();  // Statement 객체 생성
@@ -84,7 +84,7 @@ public class SelectDepartmentTitleDAO {
 			}
 			
 			
-		} catch (ClassNotFoundException e) { // 수*******필기*****?
+		} catch (ClassNotFoundException e) { 
 			e.printStackTrace();
 			
 		} catch (SQLException e) {
