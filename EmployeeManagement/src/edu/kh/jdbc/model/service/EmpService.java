@@ -137,7 +137,6 @@ public class EmpService {
 		return check;
 	}
 
-	// 8번
 	/** 가장 최근 입사한 사원 5명 조회
 	 * @return empList
 	 * @throws SQLException
