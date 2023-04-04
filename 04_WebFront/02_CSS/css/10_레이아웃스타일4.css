@@ -1,0 +1,73 @@
+div{
+    border: 1px solid black;
+
+    box-sizing: border-box;
+    /* width/height 값이
+        content + padding + border의 합과 같도록
+        content 값을 조정 */
+}
+
+.test{
+    width: 300px;
+    height: 200px;
+    background-color: rgb(180, 247, 210);
+}
+
+.float-left{
+    width: 50px;
+    height: 50px;
+    background-color: rgb(186, 145, 79);
+
+    /* 요소를 띄워서 왼쪽으로 정렬 */
+    float: left;
+}
+
+.clear-left{
+    background-color: red;
+    clear: left;
+    /* 띄워서 왼쪽 정렬하는 상태를 해제 */
+}
+
+.float-right{
+    width: 30px;
+    height: 30px;
+    background-color: blue;
+    color: white;
+
+    float: right;
+}
+
+.clear-right{
+    background-color: gold;
+    clear:right;
+}
+
+.clear-both{
+    clear: both; /* 양방향 float 해제 */
+    background-color: white;
+}
+
+/* 화면 분할 */
+.container-1{
+    width: 400px;
+    height: 200px;
+}
+
+.bg1{background-color: red;}
+.bg2{background-color: orange;}
+.bg3{background-color: yellow;}
+.bg4{background-color: green;}
+.bg5{background-color: blue;}
+.bg6{background-color: navy;}
+.bg7{background-color: purple;}
+
+.col{
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+.row{
+    width: 100%;
+    height: 50%;
+    
+}

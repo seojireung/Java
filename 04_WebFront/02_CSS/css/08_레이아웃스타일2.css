@@ -1,0 +1,89 @@
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: cadetblue;
+    /* 배경색은 content, padding 영역에 적용된다 */
+}
+
+/* content 영역 확인 (feat.개발자도구) */
+.content{
+    width: 150px;
+    height: 150px;
+
+    /* width, height는 기본적으로 content 영역의 크기를 지정하는 속성 */
+}
+
+/* border */
+.border{
+    border: 10px solid red;
+    /* box100px + 10px + 10px = 총 120px이 됨*/
+}
+
+/* padding */
+.padding{
+    padding: 30px;
+    /* content와 border 영역 사이, 상하좌우에 30px벌림 */
+}
+
+/* margin */
+.margin{
+    margin: 50px; /* 다른 요소와의 간격을 상하좌우 50px만큼 벌림 */
+
+    /* 서로 다른 요소와 margin 영역이 겹칠 경우
+        두 영역의 margin의 합 만큼 벌어지는 것이 아니라
+        둘 중 margin이 큰 요소의 margin 만큼으로 벌어진다! */
+
+    /* 형제 요소 뿐만 아니라
+        감싸고 있는 부모 요소와도 간격이 적용된다. (ex.body태그) */
+}
+
+/* padding 방향성 테스트 */
+.padding-test{
+    /* padding: 20px; 모든 방향 20px */
+
+    /* 상하 20px, 좌우 50px */
+    /* padding : 20px 50px; */
+
+    /* 상 30px, 좌우 40px, 하 50px */
+    /* padding: 30px 40px 50px; */
+
+    /* 상 30px, 우 20px, 하 50px, 좌 20px */
+    /* padding: 30px 20px 50px 20px; */
+
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 50px;
+    padding-right: 20px;
+}
+
+/* border 방향성 테스트 */
+.border-test{
+    border : 4px solid red; /* 모든 방향 */
+
+    /* border는 방향별로 지정 시 모양/색상을 같이 작성해야 한다 */
+    border-top: 1px solid black;
+
+    border-bottom: 5px dashed magenta; /* dashed: 절취선 ----- */
+
+    border-left: 10px dotted blue; /* dotted: 점선 .... */
+
+    border-right: 10px double orange; /* double: 이중선 */
+}
+
+/* margin : auto 확인하기 */
+.container-1{
+    border: 2px solid black;
+    width: 500px;
+    height: 300px;
+}
+
+.margin-auto{
+            /*상하 좌우*/
+    margin : 100px auto;
+
+    /* margin : auto auto;
+        -> 다른 요소와의 간격을 자동으로 계산해서
+            상하, 좌우에 동일한 값을 대입 (가운데로 배치)
+            --> 상하 방향에 auto를 적용해야 할 경우
+                position 관련 속성이 추가로 필요하다 */
+}
