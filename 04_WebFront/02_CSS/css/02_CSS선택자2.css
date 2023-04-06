@@ -11,7 +11,7 @@ div[name="name-1"]{ background-color: coral; }
 p[name='name-1']{ background-color: lightskyblue; }
 
 
-/* p 태그 중 name 속성 값이 "name-2"인 요소의 배경색 지정 */
+/* name 속성 값이 "name-2"인 요소의 배경색 지정 */
 [name=name-2]{ background-color: gray; }
 
 /* class 속성 값이 name-test인 요소 중
@@ -88,6 +88,7 @@ parent1-child인 요소에 배경색 지정 */
 /* 내용이 2번입니다인 div 요소를 선택 */
 #div1 + div{background-color: blueviolet;}
 
+/* 4번, 5번 선택 */
 #div3 ~ div{background-color: cornflowerblue;}
 
 #div3 ~ *{font-family: '궁서';}
