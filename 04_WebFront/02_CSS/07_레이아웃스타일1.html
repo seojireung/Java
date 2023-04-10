@@ -28,7 +28,7 @@
         - inline : 화면 수평 분할(열을 나눔)
                     + width / height 지정 불가능(x)
 
-        - inline+block : inline의 열 나눔 + block 크기 조절
+        - inline-block : inline의 열 나눔 + block 크기 조절
 
         - none : 화면에 요소가 표시되지 않게 하는 속성
                 -> 삭제 x, 보이지 않지만 존재는 함
@@ -60,7 +60,6 @@
     <hr>
 
     <h3>inline-block 확인하기(열 나눔 + 크기 조정o)</h3>
-
     <!-- div.area%.block.inline-block{$번 영역}*5 -->
     <div class="area1 block inline-block">1번 영역</div>
     <div class="area2 block inline-block">2번 영역</div>
@@ -130,12 +129,39 @@
         </div>
     </div>
 
+    <!-- 다른 방법
+    <div class="container-4">
+        <div class="col">
+            <div class="row area1"></div>
+            <div class="row area2"></div>
+        </div><div class="col">
+            <div class="row area3"></div>
+            <div class="row area4"></div>
+        </div>
+    </div> -->
+
     <hr>
 
+    <!-- 다시 보기 -->
     <h3>display : none</h3>
 
     <div class="none-test">none 테스트</div>
+    <button id="btn">보이기</button>
 
+    <script>
+        const btn = document.querySelector('#btn');
+        const noneTest = document.querySelector('.none-test');
+
+        btn.addEventListener('click', () => {
+            if(noneTest.style.display === 'block'){
+                noneTest.style.display = "none";
+                btn.innerText = "보이기";
+            }else{
+                noneTest.style.display = "block";
+                btn.innerText = "숨기기";
+            }
+        });
+    </script>
 
 </body>
 </html>

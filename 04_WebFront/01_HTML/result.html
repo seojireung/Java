@@ -13,8 +13,8 @@
     <script>
         const id = document.getElementById("id");
         const name = document.getElementById("name");
-        
         const params = new URL(location.href).searchParams;
+        
         id.innerText = params.get("inputId");
         name.innerText = params.get("inputName");
     </script>
