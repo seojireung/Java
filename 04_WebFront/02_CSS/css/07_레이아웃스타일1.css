@@ -73,7 +73,8 @@
 /* 개발자 도구로 영역 분할 확인 */
 .container-2-1 > div:first-child{ height: 15%;}
 .container-2-1 > div:first-child + div{ height: 35%; }
-.container-2-1 > div:last-child{ height: 55%; }
+/* .container-2-1 > div:nth-child(2){ height: 35%; } */
+.container-2-1 > div:last-child{ height: 50%; }
 
 /* 좌우 2분할(50:50) */
 .container-3{

@@ -29,6 +29,7 @@
 .basis-150px{flex-basis: 150px;}
 .basis-10{flex-basis: 10%;} /* container 박스의 10% */
 .basis-25{flex-basis: 25%;}
+
 /* flex 속성 : flex-grow, flex-shrink, flex-basis 한 번에 작성하는 속성 */
 .flex1{ flex: 0 0 200px; }
 

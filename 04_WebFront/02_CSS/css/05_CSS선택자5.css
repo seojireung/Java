@@ -39,7 +39,7 @@
 /* #test6 후손 중 10번만 선택 */
 /* #test6 > li:nth-of-type(5) > span { */
 /* #test6 > li:last-of-type > span{ */
-#test6 > li:nth-last-of-type(3) > span{ /*필기 다시 확인*/
-/* #test6>li:nth-last-of-type(1) > span{ */
+/* #test6 > li:nth-last-of-type(3) > span{ */
+#test6>li:nth-last-of-type(1) > span{
     background-color: yellow;
 }

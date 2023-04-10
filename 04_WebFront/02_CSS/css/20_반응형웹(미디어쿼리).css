@@ -56,8 +56,6 @@
     /* body{ background-color: rgb(186, 237, 214);
         transition-duration: 0.3s;} */
     
-
-
     main{
         width: 100%;
         margin-top: 10px;
@@ -119,7 +117,6 @@
         color: #455ba8;
         font-size: 1.5em;
     }
-
 }
 
 @media screen and (max-width : 768px) {

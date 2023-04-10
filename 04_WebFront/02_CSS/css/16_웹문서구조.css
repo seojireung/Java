@@ -187,6 +187,24 @@ nav a:hover{
     flex-direction: column;
 }
 
+.id-pw-area > section:first-child > input{
+    border: 0;
+    border-right: 1px solid #ccc;
+    flex-basis: 50%;
+    outline: none;
+    padding: 5px;
+}
+
+/* id input 태그 */
+input[name='inputId']{
+    border-bottom : 1px solid #ccc !important; /* 우선순위 맨 앞으로 */ 
+}
+
+/* id/pw에 초점이 맞춰졌을 때 */
+.id-pw-area > section:first-child > input:focus{
+    border: 2px solid #455ba8 !important;
+}
+
 /* 로그인 버튼 영역 */
 .id-pw-area > section:last-child{
     width: 25%;
@@ -206,24 +224,6 @@ nav a:hover{
 .id-pw-area > section:last-child > button:hover{
     background-color: #455ba8;
     color: white;
-}
-
-.id-pw-area > section:first-child > input{
-    border: 0;
-    border-right: 1px solid #ccc;
-    flex-basis: 50%;
-    outline: none;
-    padding: 5px;
-}
-
-/* id input 태그 */
-input[name='inputId']{
-    border-bottom : 1px solid #ccc !important; /* 우선순위 맨 앞으로 */ 
-}
-
-/* id/pw에 초점이 맞춰졌을 때 */
-.id-pw-area > section:first-child > input:focus{
-    border: 2px solid #455ba8 !important;
 }
 
 /* 아이디 저장 label */

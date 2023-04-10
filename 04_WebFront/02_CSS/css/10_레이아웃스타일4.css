@@ -24,6 +24,7 @@ div{
 
 .clear-left{
     background-color: red;
+    color: white;
     clear: left;
     /* 띄워서 왼쪽 정렬하는 상태를 해제 */
 }

@@ -1,4 +1,3 @@
-/* 여기 페이지 필기 다시***************************************** */
 /* 일반 구조 선택자 */
 
 /* :first-child -> 형제 관계의 요소 중 첫 번째 요소 */
@@ -10,7 +9,7 @@
 
 /* :last-child -> 형제 관계 요소 중 마지막 요소 */
 #test1 > p:last-child{
-    background-color: orange; /* ?????????????????????????????? */
+    background-color: orange;
 }
 
 /* :nth-child(수열) -> 형제 관계의 요소 중 지정된 수열(n) 번째 요소를 모두 선택 */
@@ -45,11 +44,12 @@
     color: white
 }
 
+/* :last-of-type -> 같이 선택된 형제 중 마지막 요소 */
 #test2 > p:last-of-type{
     background-color: orange;
 }
 
-/* :nth-of-type(수열) -> 같이 선택된  형제 중 수열 번째 요소 모두 선택 */
+/* :nth-of-type(수열) -> 같이 선택된 형제 중 수열 번째 요소 모두 선택 */
 
 /* 2번째 요소 선택 */
 #test2 > p:nth-child(2){
@@ -63,16 +63,7 @@ n은 정수(음수,양수,0) */
     font-style: italic;
 }
 
-    /* :nth-last-child(수열) -> 형제 관계의 요소 중 뒤에서부터 지정된 수열(n) 번째 요소를 모두 선택 */
-/* 뒤에서부터 지정된 수열(n) 번째 요소를 모두 선택 */
-
-/* 뒤에서부터 2번째 */
-#test2 > p:nth-last-of-type(2){
-    background-color: skyblue;
-}
-
 /* :nth-last-child(수열) -> 형제 관계의 요소 중 뒤에서부터 지정된 수열(n) 번째 요소를 모두 선택 */
-/* 뒤에서부터 지정된 수열(n) 번째 요소를 모두 선택 */
 
 /* 뒤에서부터 2번째 */
 #test2 > p:nth-last-of-type(2){

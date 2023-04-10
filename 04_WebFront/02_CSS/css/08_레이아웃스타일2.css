@@ -47,8 +47,9 @@
     /* 상 30px, 좌우 40px, 하 50px */
     /* padding: 30px 40px 50px; */
 
-    /* 상 30px, 우 20px, 하 50px, 좌 20px */
-    /* padding: 30px 20px 50px 20px; */
+    /* 상 30px, 우 20px, 하 30px, 좌 50px */
+    /* 상우하좌 (시계방향) */
+    /* padding: 30px 20px 30px 50px; */
 
     padding-top: 30px;
     padding-bottom: 30px;
@@ -73,15 +74,15 @@
 /* margin : auto 확인하기 */
 .container-1{
     border: 2px solid black;
-    width: 500px;
+    width: 470px;
     height: 300px;
 }
 
 .margin-auto{
             /*상하 좌우*/
-    margin : 100px auto;
+    margin : auto auto;
 
-    /* margin : auto auto;
+    /* margin : auto
         -> 다른 요소와의 간격을 자동으로 계산해서
             상하, 좌우에 동일한 값을 대입 (가운데로 배치)
             --> 상하 방향에 auto를 적용해야 할 경우
