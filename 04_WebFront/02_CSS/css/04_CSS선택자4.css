@@ -41,7 +41,7 @@
 /* first-of-type -> 같이 선택된 형제 중 첫 번째 요소 */
 #test2 > p:first-of-type{
     background-color: red;
-    color: white
+    color: white;
 }
 
 /* :last-of-type -> 같이 선택된 형제 중 마지막 요소 */
