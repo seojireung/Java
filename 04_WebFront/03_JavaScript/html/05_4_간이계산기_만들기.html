@@ -46,10 +46,10 @@
             // --> ***new Function("return 코드 형식의 문자열")()로 문제 해결
             document.getElementById('result').innerText
                 // = eval(num1 + op.innerText + num2);
+                        // num1 +  "+" + num2 -> "10 + 20"
+                        //  10            20
                 = new Function("return " + num1 + op.innerText + num2)();
                 //           return뒤 띄어쓰기!
-                    // num1 +  "+" + num2 -> "10 + 20"
-                    //  10            20
         }
 
     </script>

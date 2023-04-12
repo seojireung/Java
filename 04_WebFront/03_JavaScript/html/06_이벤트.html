@@ -13,7 +13,7 @@
             background-color: skyblue;
             cursor: pointer;
             transition-duration: 0.3s;
-            user-select: none; /* 블럭 표시 x */
+            user-select: none; /* 파랑 블럭 표시 x */
         }
 
         .container{ display: flex; }
@@ -51,6 +51,7 @@
         이벤트 리스너(Event Listener)
         -> HTML 문서에서 이벤트가 발생하는 것을 감지
         -> 이벤트가 감지되면 연결된 기능(함수)를 수행
+
             - 이벤트명 앞 on을 붙여서 표기
             (onclick, onkeyup, onkeydown, onsubmit 등....)
 
@@ -108,7 +109,7 @@
     첫 번째 값 : <input type="text" id="num1"><br>
     두 번째 값 : <input type="text" id="num2"><br>
     <br>
-    <button id="cal" class="op">+</button>
+    <button id="plus" class="op">+</button>
     <button id="cal" class="op">-</button>
     <button id="cal" class="op">*</button>
     <button id="cal" class="op">/</button>
@@ -158,6 +159,7 @@
 
     <!-- form태그에 name 속성을 추가하면
         JS에서 해당 form태그에 쉽게 접근할 수 있다.-->
+        
     <form action="05_4_간이계산기_만들기.html" method="GET" 
         name="testForm";>
                 <!-- 기본 이벤트 제거 방법2 (인라인 이벤트 모델) 

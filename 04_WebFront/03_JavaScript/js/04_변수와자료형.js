@@ -21,7 +21,7 @@ function testFn(){
     console.log("함수 내부에서 선언된 (함)num3 : " + num3);
     console.log("함수 내부에서 선언된 (전)num4 : " + num4);
 
-    if(1 == 1){ // 무조건 수행
+    if(1 == 1){ // 무조건 if문 수행
         var num5 = 5;   // !function! 지역 변수 (if문꺼 아님!!)
         num6 = 6;       // 전역 변수
     }
@@ -41,13 +41,14 @@ testFn();
 console.log("함수 밖에서 (전)num4 : " + num4);
 
 // num5 에러 발생
-// console.log("if문 종료 후 (if)num5 : " + num5); 
+// console.log("함수 밖에서 (if)num5 : " + num5); 
 console.log("함수 밖에서 (if)num6 : " + num6);
 
 
 // var 변수명 중복 확인
 var testValue = 10;
 console.log(testValue);
+
 var testValue = 20;
 console.log(testValue);
 
@@ -113,7 +114,7 @@ function typeTest(){
     
     // boolean
     const isTrue = true;
-    box.innerHTML += "<br>true : " + true + " / " + typeof true;
+    box.innerHTML += "<br>isTrue : " + isTrue + " / " + typeof isTrue;
     
     // object
     
@@ -147,6 +148,7 @@ function typeTest(){
 
     // function (* 함수도 자료형이다!!!!! *)
     const sumFn = function(n1, n2){ return n1 + n2;}
+    
     box.innerHTML += "<br>sumFn : " + sumFn + " / " + typeof sumFn;
     
     // 함수명만 작성 : 함수에 작성된 코드가 그대로 출력

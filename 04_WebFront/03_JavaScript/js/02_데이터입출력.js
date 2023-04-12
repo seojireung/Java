@@ -7,7 +7,7 @@ function getBoxText(){
 
     /* var(Variable : 변수) */
 
-    /* var test1 -> 변수 test1을 선언 (자료형 X) */
+    /* var test1 -> 변수 test1을 선언 (자료형 선언X) */
 
     /* JS는 대입되는 값에 따라 변수 자료형이 정해진다 */
     var test1 = document.getElementById("test1");
@@ -43,7 +43,7 @@ function getBoxElement(){
 function setBoxElement(){
     var temp = document.getElementById("test2");
 
-    temp.innerHTML = "<b>innerText로 <br> 변경된 내용입니다.</b>"
+    temp.innerHTML = "<b>innerHTML로 <br> 변경된 내용입니다.</b>"
 }
 
 // innerHTML 응용

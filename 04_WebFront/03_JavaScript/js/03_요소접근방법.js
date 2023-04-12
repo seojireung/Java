@@ -45,10 +45,12 @@ function accessName(){
     //    + 개수를 세기 위한 변수 선언
     var result = "";
     var count = 0;
+
+    // 3) hobbyList 요소 반복 접근
     for(var i=0; i<hobbyList.length; i++){
 
         /*******  radio / checkbox 전용 속성 : checked *******/ 
-        // 3) 해당 요소가 체크되어 있으면 true, false 반환
+        // 해당 요소가 체크되어 있으면 true, 아니면 false 반환
 
         if(hobbyList[i].checked){ // 체크 되어 있을 경우
             result += hobbyList[i].value + " "; // value  값 누적 (+ 한 칸 띄어쓰기)
@@ -81,10 +83,10 @@ function cssTest(){
     document.querySelector("#cssDiv").style.border = "3px solid red";
 
     // 여러 요소 선택(첫 번째 요소만 선택 되는지 확인)
-    document.querySelector("#cssDiv>div").style.fontSize = "30px";
+    document.querySelector("#cssDiv > div").style.fontSize = "30px";
 
     // querySelectorAll("선택자") : 일치하는 모든 요소 선택(배열 반환)
-    var arr = document.querySelectorAll("#cssDiv>div");
+    var arr = document.querySelectorAll("#cssDiv > div");
 
     for(var i=0; i<arr.length; i++){
         arr[i].style.backgroundColor = "orange";
@@ -126,6 +128,7 @@ function readValue(){
 function inputEnter(){
 
     // console.log( window.event.key ); // 현재 눌러진 키를 반환
-    // 필기
+    
+    // 엔터 입력 시 readValue() 함수 호출
     if(window.event.key == "Enter") readValue();
 }
