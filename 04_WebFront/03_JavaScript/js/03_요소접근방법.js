@@ -126,6 +126,6 @@ function readValue(){
 function inputEnter(){
 
     // console.log( window.event.key ); // 현재 눌러진 키를 반환
-    // ***********추가 필기?******************
+    // 필기
     if(window.event.key == "Enter") readValue();
 }

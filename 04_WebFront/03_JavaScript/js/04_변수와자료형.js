@@ -34,15 +34,15 @@ function testFn(){
 testFn();
 
 // num3 is not defined(정의 되지 않음 == 존재하지 않거나 접근 불가능)
-// console.log("함수 내부에서 선언된 (함)num3 : " + num3);
+// console.log("함수 밖에서 (함)num3 : " + num3);
 
 // JS 코드 중간에 에러가 발생하면
 // 같은 파일/함수 내 에러 이후 부분 코드가 해석되지 않는다.
-console.log("함수 내부에서 선언된 (전)num4 : " + num4);
+console.log("함수 밖에서 (전)num4 : " + num4);
 
 // num5 에러 발생
 // console.log("if문 종료 후 (if)num5 : " + num5); 
-console.log("if문 종료 후 (if)num6 : " + num6);
+console.log("함수 밖에서 (if)num6 : " + num6);
 
 
 // var 변수명 중복 확인
@@ -58,7 +58,7 @@ let let1 = 10;
 
 // const는 let이랑 똑같은데 상수인 점만 다름!
 const temp = 999;
-// temp = 1000;
+// temp = 1000; // typeError: Assignment to constant variable.
 
 function testFn2(){
     let let1 = 20;
@@ -66,10 +66,10 @@ function testFn2(){
 
     if(1 == 1){
         let let1 = 30;
-        var let3 = 300;
+        var let3 = 300; // let3 is not defined
     }
     
-    console.log("if문 내부 let3 : " + let3); // let3 is not defined
+    // console.log("if문 내부 let3 : " + let3);
 }
 
 testFn2(); // 함수 호출
@@ -163,5 +163,3 @@ function doubleFn(fn){
     // 전달 받은 함수의 결과를 2배로 반환하는 함수
     return fn(1,2) * 2;
 }
-
-// 필기???????
