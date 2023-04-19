@@ -64,14 +64,17 @@ const temp = 999;
 function testFn2(){
     let let1 = 20;
     let let2 = 200;
-
+    
     if(1 == 1){
         let let1 = 30;
         var let3 = 300; // let3 is not defined
+        console.log(let1); //30
     }
+    console.log(let1); //20
     
     // console.log("if문 내부 let3 : " + let3);
 }
+console.log(let1); //10
 
 testFn2(); // 함수 호출
 // let2 is not defined 에러
