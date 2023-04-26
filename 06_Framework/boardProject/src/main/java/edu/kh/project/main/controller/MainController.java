@@ -34,6 +34,7 @@ public class MainController {
 		// 단, servlet-context.xml에 작성된
 		// prefix, suffix부분을 제외하고 작성!!!
 		// -> prefix + 리턴 값 + suffix로 경로 완성!
+		// ** View Resolver **
 		
 		
 		return "common/main";
