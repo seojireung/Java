@@ -10,7 +10,7 @@ import edu.kh.project.member.model.dto.Member;
 //			(파일, DB 관련 클래스) + Bean 등록
 public class MemberDAO {
 	
-	// SqlSessionTemplate (마이바티스 객체) DI
+	// SqlSessionTemplate (마이바티스 객체) DI -->(root-context.xml 확인)
 	@Autowired // 등록된 Bean 중에서 SqlSessionTemplate 타입의 Bean을 주입
 	private SqlSessionTemplate sqlSession;
 
