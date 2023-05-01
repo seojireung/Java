@@ -9,9 +9,9 @@
         
         <li> <a href="/myPage/info">내 정보</a> </li>
         
-        <li> <a href="myPage/changePw">비밀번호 변경</a> </li>
+        <li> <a href="/myPage/changePw">비밀번호 변경</a> </li>
         
-        <li> <a href="myPage/secessioin">회원 탈퇴</a> </li>
+        <li> <a href="/myPage/secession">회원 탈퇴</a> </li>
         
     </ul>
     

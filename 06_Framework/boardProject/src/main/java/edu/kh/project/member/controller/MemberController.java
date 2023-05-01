@@ -161,7 +161,7 @@ public class MemberController {
 		// (주의) required 속성 미작성 시 기본 값 true
 		// -> 파라미터가 전달되지 않는 경우 주의
 		
-		// HttpServletResponse resp : 서버 -> 클라이언트 응답 필기!!!!!!!!!!!!!!!
+		// HttpServletResponse resp : 서버 -> 클라이언트 응답 방법을 가지고 있는 객체
 		
 		// 로그인 서비스 호출
 		Member loginMember = service.login(inputMember);
@@ -224,7 +224,7 @@ public class MemberController {
 			
 			// 응답 객체(HttpServletResponse)를 이용해서
 			// 만들어진 쿠키를 클라이언트에게 전달
-			resp.addCookie(cookie); // 필기!????????!!!!!!!!!!!!!?
+			resp.addCookie(cookie); 
 			
 			// ------------------------------------------
 			
