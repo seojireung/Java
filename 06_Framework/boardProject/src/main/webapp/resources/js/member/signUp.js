@@ -88,7 +88,9 @@
 const checkObj = {
     "memberEmail" : false,
     "memberPw" : false,
-    "memberPwConfirm" : false
+    "memberPwConfirm" : false,
+    "memberNickname" : false,
+    "memberTel" : false
 };
 
 
@@ -121,10 +123,29 @@ memberEmail.addEventListener("input", () => {
 
     // 2) 입력 받은 이메일과 정규식 일치 여부 판별
     if(regEx.test(memberEmail.value)){ // 유효한 경우
-        emailMessage.innerText = "유효한 형식 입니다";
-        emailMessage.classList.add("confirm");
-        emailMessage.classList.remove("error");
-        checkObj.memberEmail = true; // 유효 o
+
+        /**********************************************/
+        /* fetch() API를 이용한 ajax(비동기 통신) */
+
+        // GET 방식 ajax 요청 (파라미터를 쿼리스트링으로...)
+        fetch('/dupCheck/email?email=' + memberEmail.value) // 입력한 이메일을 전달
+        .then(response => response.text()) // 응답객체 -> 파싱(parsing, 데이터 형태 변환)
+        .then(count => {
+            // count : 중복되면 1, 중복 아니면 0
+            if(count == 0){
+                emailMessage.innerText = "사용 가능한 이메일입니다."
+                emailMessage.classList.add("confirm");
+                emailMessage.classList.remove("error");
+                checkObj.memberEmail = true; // 유효 o
+            }else{
+                emailMessage.innerText = "이미 사용 중인 이메일 입니다."
+                emailMessage.classList.add("error");
+                emailMessage.classList.remove("confirm");
+                checkObj.memberEmail = false; // 유효 x
+
+            }
+        }) // 파싱한 데이터를 이용해서 수행할 코드 작성
+        .catch(err => console.log(err)); // 예외 처리
         
     }else{ // 유효하지 않은 경우(무효인 경우)
         emailMessage.innerText = "이메일 형식이 유효하지 않습니다";
@@ -189,8 +210,6 @@ memberPw.addEventListener("input", ()=>{
                 checkObj.memberPwConfirm = false;
             }
         }
-
-        
     }else{ // 유효하지 않은 경우
         pwMessage.innerText = "비밀번호 형식이 유효하지입니다";
         pwMessage.classList.add("error");
@@ -202,7 +221,6 @@ memberPw.addEventListener("input", ()=>{
 
 
 });
-
 
 
 // 비밀번호 확인 유효성 검사
@@ -231,10 +249,85 @@ memberPwConfirm.addEventListener('input',()=>{
 })
 
 
+// 닉네임 유효성 검사
+const memberNickname = document.getElementById("memberNickname");
+const nickMessage = document.getElementById("nickMessage");
+
+// 닉네임이 입력 되었을 때
+memberNickname.addEventListener("input", ()=>{
+
+    // 닉네임이 입력 되지 않은 경우
+    if(memberNickname.value.trim() == ''){
+        nickMessage.innerText = "한글,영어,숫자로만 2~10글자";
+        nickMessage.classList.remove("confirm","error");
+        checkObj.memberNickname = false;
+        memberNickname.value = ""; // 빈칸 제출 못하게 핟는 코드
+        return;
+    }
+
+    // 정규표현식으로 닉네임 검사
+    const regEx = /^[가-힣\w\d]{2,10}$/;
+
+    if(regEx.test(memberNickname.value)){ // 유효
+        fetch("/dupCheck/nickname?nickname="+memberNickname.value)
+        .then(resp=>resp.text()) // 응답 객체를 text로 파싱(변환)
+        .then(count=>{
+            if(count == 0){ // 중복 아닌 경우
+                nickMessage.innerText = "사용 가능한 닉네임 입니다";
+                nickMessage.classList.add("confirm");
+                nickMessage.classList.remove("error");
+                checkObj.memberNickname = true;
+                
+            }else{ // 중복인 경우
+                nickMessage.innerText = "이미 사용중인 닉네임 입니다";
+                nickMessage.classList.add("error");
+                nickMessage.classList.remove("confirm");
+                checkObj.memberNickname = false;
+            }
+        })
+        .catch(err=>console.log(err));
 
 
 
 
+    }else{ // 무효
+        nickMessage.innerText = "닉네임 형식이 유효하지 않습니다";
+        nickMessage.classList.add("error");
+        nickMessage.classList.remove("confirm");
+        checkObj.memberNickname = false;
+    }
+});
+
+// 전화번호 유효성 검사
+const memberTel = document.getElementById("memberTel");
+const telMessage = document.getElementById("telMessage");
+
+// 전화번호가 입력 되었을 때
+memberTel.addEventListener("input",()=>{
+    if(memberTel.value.trim() == ''){
+        telMessage.innerText = "전화번호를 입력해주세요.(- 제외)";
+        telMessage.classList.remove("confirm","error");
+        checkObj.memberTel = false;
+        memberTel.value = "";
+        return;
+    }
+        
+        const regEx = /^0(1[01679]|2|[3-6][1-5]|70)[1-9]\d{2,3}\d{4}$/;
+        
+        if(regEx.test(memberTel.value)){
+            telMessage.innerText = "유효한 전화번호입니다";
+            telMessage.classList.add("confirm");
+            telMessage.classList.remove("error");
+            checkObj.memberTel = true;
+        }else{ 
+            telMessage.innerText = "전화번호 형식이 유효하지 않습니다";
+            telMessage.classList.add("error");
+            telMessage.classList.remove("confirm");
+            checkObj.memberTel = false;
+        }
+
+
+    });
 
 
 
@@ -264,7 +357,11 @@ document.getElementById("signUpFrm").addEventListener("submit", e=>{
                 case "memberPw":
                     alert("비밀번호가 유효하지 않습니다"); break;
                 case "memberPwConfirm":
-                    alert("비밀번호가 확인되지 않았습니다"); break;
+                    alert("비밀번호가 확인되지 않았습니다"); break;          
+                case "memberNickname":
+                    alert("닉네임이 유효하지 않았습니다"); break;
+                case "memberTel":
+                    alert("전화번호가 유효하지 않았습니다"); break;
                 }               
 
                 // 유효하지 않은 input 태그로 focus 이동
