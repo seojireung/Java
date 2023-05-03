@@ -1,8 +1,12 @@
 package edu.kh.project.member.model.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import edu.kh.project.member.model.dto.Member;
 
 @Repository // DB 연결 의미 + bean(스프링이 관리하는 객체) 등록
 public class AjaxDAO {
@@ -24,6 +28,15 @@ public class AjaxDAO {
 
 	public int checkNickname(String nickname) {
 		return sqlSession.selectOne("ajaxMapper.checkNickname", nickname);
+	}
+
+	public Member selectMember(String email) {
+		return sqlSession.selectOne("ajaxMapper.selectMember", email);
+						// 1행 조회
+	}
+
+	public List<Member> selectMemberList(String input) {
+		return sqlSession.selectList("ajaxMapper.selectMemberList", input);
 	}
 	
 }

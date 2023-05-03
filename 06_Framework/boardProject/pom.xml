@@ -99,6 +99,21 @@
 		    <artifactId>jackson-databind</artifactId>
 		    <version>2.14.2</version>
 		</dependency>
+		
+		<!-- 이메일 인증 -->
+		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
       
 
 		<!-- Spring 모듈 -->
@@ -201,6 +216,10 @@
 			<version>${org.springframework-version}</version>
 			<scope>test</scope>
 		</dependency>
+		
+		
+		
+		
 	</dependencies>
 
 	<!-- build : 프로젝트 빌드 시 사용되는 플러그인 추가 및 버전 정보 설정 -->
