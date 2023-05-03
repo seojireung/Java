@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 // -> 프레임워크(Spring Container)가 객체를 생성하고 관리
 // --> 이 때 생성된 객체 == Bean
 
-@Controller
+@Controller // 현재 클래스가 컨트롤러임을 명시
 public class MainController {
 	
 	// tip : spring에서 controller 메서드 작성 시
@@ -27,7 +27,7 @@ public class MainController {
 //		<beans:property name="prefix" value="/WEB-INF/views/" />
 //		<beans:property name="suffix" value=".jsp" />
 		
-		// Spring에서 forwadrd는 방법!!
+		// Spring에서 forward하는 방법!!
 		// -> webapp 폴더를 기준으로
 		//	  요청 위임할 JSP 파일 경로를 리턴하면 된다!
 		
