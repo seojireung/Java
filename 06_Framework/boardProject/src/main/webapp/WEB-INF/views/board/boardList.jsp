@@ -6,6 +6,7 @@
 <c:set var="boardList" value="${map.boardList}"/>
 
 <%-- <c:set var="boardName" value="${boardTypeList[boardCode-1].BOARD_NAME}"/> --%>
+<%-- ${boardCode} : @Pathvariable로 request scope에 추가된 값 --%>
 <c:forEach items="${boardTypeList}" var="boardType">
     <c:if test="${boardType.BOARD_CODE == boardCode}" >
         <c:set var="boardName" value="${boardType.BOARD_NAME}"/>
@@ -18,7 +19,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>boardName</title>
+    <title>${boardName}</title>
 
     <link rel="stylesheet" href="/resources/css/board/boardList-style.css">
 
@@ -30,7 +31,7 @@
         
         <section class="board-list">
 
-            <h1 class="board-name">게시판 이름</h1>
+            <h1 class="board-name">${boardName}</h1>
 
 
             <div class="list-wrapper">
@@ -128,7 +129,6 @@
 
                 </ul>
             </div>
-
 
 			<!-- 검색창 -->
             <form action="#" method="get" id="boardSearch">

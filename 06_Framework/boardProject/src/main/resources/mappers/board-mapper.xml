@@ -3,6 +3,7 @@
 <mapper namespace="boardMapper">
 
 		<!-- Board라는 DTO에 대한 resultMap -->
+		<!-- type의 별칭은 mybatis-config에서 지정함 -->
 		<resultMap type="Board" id="board_rm">
 			<id property="boardNo" column="BOARD_NO"/>
 			
@@ -27,7 +28,7 @@
 	<!-- 
 		resultType이 "map"인 경우
 		K : 컬럼 명 (BOARD_CODE, BOARD_NAME)
-		V : 컬럼 값 (		1	 ,  필기!!!!!!!)
+		V : 컬럼 값 (		1	 ,  공지 사항  )
 	-->
 
 	<!-- 게시판 종류 목록 조회 -->

@@ -88,8 +88,10 @@
                 
                 <%-- interceptor를 이용해서 조회된 boardTypeList를 
                     application scope에서 얻어와 화면에 출력 --%>
+                    <%-- items="${boardTypeList}은 Map 형태 --%>
                 <c:forEach var="boardType" items="${boardTypeList}">
                     <li>
+                        <%-- a태그 == GET방식 --%>
                         <a href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>    
                     </li>
                 </c:forEach>
