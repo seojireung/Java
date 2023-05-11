@@ -83,7 +83,8 @@ public class BoardController {
 	public String selectBoardList(
 			@PathVariable("boardCode") int boardCode
 			, @RequestParam(value="cp", required=false, defaultValue="1") int cp
-			, Model model) {
+			, Model model
+			) {
 		
 		// boardCode 확인
 //		System.out.println("boardCode : " + boardCode);
