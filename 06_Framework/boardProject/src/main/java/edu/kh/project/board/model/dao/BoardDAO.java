@@ -95,11 +95,10 @@ public class BoardDAO {
 
 	/** 조회 수 증가
 	 * @param boardNo
-	 * @return
+	 * @return result
 	 */
-	public int updateReadcount(int boardNo) {
-		return sqlSession.update("boardMapper.updateReadcount", boardNo);
+	public int updateReadCount(int boardNo) {
+		return sqlSession.update("boardMapper.updateReadCount", boardNo);
 	}
-
 	
 }

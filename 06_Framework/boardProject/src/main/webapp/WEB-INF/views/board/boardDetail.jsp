@@ -26,7 +26,7 @@
 
         <section class="board-detail">  
             <!-- 제목 -->
-            <h1 class="board-title">${boardTitle}  <span> - ${boardName}</span>    </h1>
+            <h1 class="board-title">${board.boardTitle}  <span> - ${boardName}</span>    </h1>
 
             <!-- 프로필 + 닉네임 + 작성일 + 조회수 -->
             <div class="board-header">
@@ -86,6 +86,7 @@
                     조회 되었을 때 IMG_ORDER가 0인 이미지가
                     imageList [0]에 저장 되었을 것이다 (!생각!)
             --%>
+
             <c:if test="${board.imageList[0].imageOrder == 0}" >
                 <h5>썸네일</h5>
                 <div class="img-box">
