@@ -2,7 +2,7 @@ package edu.kh.project.member.model.service;
 
 import edu.kh.project.member.model.dto.Member;
 
-// Service Interface 사용 이요
+// Service Interface 사용 이유
 
 // 1. 프로젝트에 규칙성을 부여하기 위해서
 
