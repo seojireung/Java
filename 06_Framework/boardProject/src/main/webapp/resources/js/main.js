@@ -4,40 +4,41 @@ const memberEmail = document.querySelector("#loginFrm input[name='memberEmail']"
                                         // 더 정확히 구분하기 위해 #loginFrm도 작성
 const memberPw = document.querySelector("#loginFrm input[name='memberPw']");
 
-// 로그인 시도를 할 때
-loginFrm.addEventListener("submit", e => {
-    
-    // alert("로그인"); // 제출 되는지 확인용
-
-    // form태그 기본 이벤트 제거
-    // 아이디나 비밀번호 입력 안됐을 때 사용
-    // e.preventDefault();
-
-
-    // 이메일이 입력되지 않은 경우
-    // 문자열.trim() : 문자열 좌우 공백 제거
-    if(memberEmail.value.trim().length == 0){
-        alert("이메일을 입력해주세요.");
-
-        memberEmail.value = ""; // 잘못 입력된 값(공백) 제거
-        memberEmail.focus(); // 이메일 input 태그에 초점을 맞춤
+if(loginFrm != null){
+    // 로그인 시도를 할 때
+    loginFrm.addEventListener("submit", e => {
         
-        e.preventDefault(); // 제출 못하게 하기
-        return;
-        
-    }
-    // 비밀번호가 입력되지 않은 경우
-    if(memberPw.value.trim().length == 0){
-        alert("비밀번호를 입력해주세요.");
+        // alert("로그인"); // 제출 되는지 확인용
 
-        memberPw.value = ""; // 잘못 입력된 값(공백) 제거
-        memberPw.focus(); // 비밀번호 input 태그에 초점을 맞춤
+        // form태그 기본 이벤트 제거
+        // 아이디나 비밀번호 입력 안됐을 때 사용
+        // e.preventDefault();
 
-        e.preventDefault(); // 제출 못하게 하기
-        return;
-    }
-});
 
+        // 이메일이 입력되지 않은 경우
+        // 문자열.trim() : 문자열 좌우 공백 제거
+        if(memberEmail.value.trim().length == 0){
+            alert("이메일을 입력해주세요.");
+
+            memberEmail.value = ""; // 잘못 입력된 값(공백) 제거
+            memberEmail.focus(); // 이메일 input 태그에 초점을 맞춤
+            
+            e.preventDefault(); // 제출 못하게 하기
+            return;
+            
+        }
+        // 비밀번호가 입력되지 않은 경우
+        if(memberPw.value.trim().length == 0){
+            alert("비밀번호를 입력해주세요.");
+
+            memberPw.value = ""; // 잘못 입력된 값(공백) 제거
+            memberPw.focus(); // 비밀번호 input 태그에 초점을 맞춤
+
+            e.preventDefault(); // 제출 못하게 하기
+            return;
+        }
+    });
+}
 
 // 비동기로 이메일이 일치하는 회원의 닉네임 조회
 function selectNickname(email){
@@ -172,4 +173,33 @@ btn3.addEventListener("click", ()=>{
         console.log(err);
     });
 });
+
+// ---------------------------------------------------------------
+// 웹소켓 테스트
+// 1. SockJS 라이브러리 추가
+
+// 2. SockJS를 이용해서 클라이언트 웹소켓 객체 생성
+let testSock = new SockJS("/testSock");
+
+function sendMessage(name, str){
+    // 매개변수를 JS 객체에 저장
+    let obj = {}; // 비어있는 객체
+    obj.name = name; // 객체에 일치하는 key가 없다면 자동으로 추가
+    obj.str = str;
+
+    // console.log(obj);  // 웹 콘솔에 sendMessage("누구에게","메세지 내용")하면 객체 생김
+
+    testSock.send(JSON.stringify(obj)); // 웹 콘솔 기능 실행하면 서버 콘솔에 객체 생성됨
+                // JS객체 -> JSON
+
+}
+
+// 웹소켓 객체(testSock)가 서버로부터 전달 받은 메시지가 있을 경우
+testSock.onmessage = e => {
+    // e : 이벤트 객체
+    // e.data : 전달 받은 메세지 (JSON)
+
+    let obj = JSON.parse(e.data); // JSON -> JS 객체
+    console.log(`보낸사람 : ${obj.name} / ${obj.str}`);
+}
 
