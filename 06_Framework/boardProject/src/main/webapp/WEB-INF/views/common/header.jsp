@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="/resources/css/main-style.css">
     <!-- font awesome 라이브러리 추가 + key 등록 -->
     <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
+    <script src="/resources/js/header.js"></script>
 <header>
             <section>
                 <!-- 클릭 시 메인 페이지로 이동하는 로고 -->
@@ -22,7 +23,7 @@
                         - POST : input 태그 값을 주소에 담지 않고 제출(주소에 안보임)
                             -> HTTP Body에 담아서 제출
                     -->
-                    <form action="#" method="GET">
+                    <form action="/board/1" method="GET">
                         <fieldset> <!-- form 태그 내 영역 구분 -->
 
                             <!-- 
@@ -33,7 +34,10 @@
                             -->
                             <input type="search" name="query" id="query" 
                             placeholder="검색어를 입력해주세요." 
-                            autocomplete="off">
+                            autocomplete="off" value="${param.query}">
+
+                            <%-- 제목 검색만 되게끔..장식용이지만.. --%>
+                            <input type="hidden" name="key" value="t">
 
                             <!-- 검색 버튼 -->
                             <!-- button type="submit"이 기본값 -->
@@ -43,6 +47,7 @@
 
                     </form>
 
+                    <ul id="searchResult" class="close"></ul>
                 </article>
             </section>
             <section></section>
