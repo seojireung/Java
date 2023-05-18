@@ -101,7 +101,7 @@ public class BoardController {
 			// 조회 결과를 request scope에 세팅 후 forward
 			model.addAttribute("map", map);
 			
-		}else { // 검색어가 없을 때 (검색o)
+		}else { // 검색어가 있을 때 (검색o)
 			paramMap.put("boardCode", boardCode); // 미리 담아놓음
 			
 			Map<String, Object> map = service.selectBoardList(paramMap, cp); // 오버로딩
