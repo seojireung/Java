@@ -87,7 +87,7 @@ public class BoardController {
 		@PathVariable("boardCode") int boardCode
 		, @RequestParam(value="cp", required=false, defaultValue="1") int cp  
 		, Model model
-		, @RequestParam	Map<String, Object> paramMap // 파라미터 정보 전부 담겨 있음(boardCode, key, query)
+		, @RequestParam	Map<String, Object> paramMap // 검색-파라미터 정보 전부 담겨 있음(boardCode, key, query)
 		) {
 		
 		// boardCode 확인
