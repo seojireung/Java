@@ -128,7 +128,7 @@ public class BoardController {
 		, @SessionAttribute(value="loginMember", required=false) Member loginMember
 			// 세션에서 loginMember를 얻어오는데 없으면 null, 있으면 회원정보 저장   
 		
-		// 쿠기를 이용한 조회 수 증가에서 사용
+		// 쿠키를 이용한 조회 수 증가에서 사용
 		, HttpServletRequest req 
 		, HttpServletResponse resp
 		) throws ParseException {
