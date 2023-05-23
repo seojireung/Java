@@ -27,7 +27,7 @@
 		
 		ViewResolver : 컨트롤러에서 반환된 문자열("common/main") 
 		앞/뒤에 경로(/WEB-INF/views/), 확장자(.jsp)를 붙여 
-		jsp 파일 경로 저장 후 forward(요청 위임)을 하는 객체
+		jsp 파일 경로 저장 후 forword(요청 위임)을 하는 객체
 		
 		component-scan : @Component와 자식 어노테이션을 Bean으로 등록하는 태그
 		
