@@ -15,6 +15,7 @@ public class MemberServiceImpl implements MemberService{
 	private MemberDAO dao;
 	
 	@Autowired // bean으로 등록된 객체 중 타입이 일치하는 객체를 DI(의존성 주입)
+	// SecurityConfig class에서 bean 등록 했음
 	private BCryptPasswordEncoder bcrypt;
 	
 	@Override
