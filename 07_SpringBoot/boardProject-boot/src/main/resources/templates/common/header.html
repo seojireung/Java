@@ -82,23 +82,14 @@
         </header>
 
         <nav>
+            <!-- interceptor를 이용해서 조회된 boardTypeList를 
+                application scope에서 얻어와 화면에 출력 -->
             <ul>
-                <li><a href="#">공지사항</a></li>
-                <li><a href="#">자율 게시판</a></li>
-                <li><a href="#">질문 게시판</a></li>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">1:1 문의</a></li>
-                
-                <!-- <%-- interceptor를 이용해서 조회된 boardTypeList를 
-                    application scope에서 얻어와 화면에 출력 --%>
-                    <%-- items="${boardTypeList}은 Map 형태 --%> -->
-                    <li>
-                        <!-- <%-- a태그 == GET방식 --%> -->
-                        <a href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>    
-                    </li>
-
-                <!-- <%-- 로그인 했을 때 채팅 보여짐 --%> -->
-                    <li><a href="/chatting">채팅</a></li>
-
+                <li th:each="boardType : ${application.boardTypeList}">
+                    <a th:href="@{/board/{boardCode}(boardCode=${boardType.BOARD_CODE})}" 
+                    th:text="${boardType.BOARD_NAME}">게시판</a>    
+                </li>
+                <!-- 로그인 했을 때 채팅 보여짐 -->
+                <li><a th:href="@{/chatting}">채팅</a></li>
             </ul>
         </nav>
