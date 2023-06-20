@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kh.test.user.model.dao.UserMapper">
+	
+	<resultMap id="user_rm" type="User">
+		<id property="userNo" column="USER_NO"/>
+		<result property="userId" column="USER_ID"/>
+		<result property="userName" column="USER_NAME"/>
+		<result property="userAge" column="USER_AGE"/>
+	</resultMap>
+	
+	<select id="searchUser" resultMap="user_rm">
+		SELECT * FROM TB_USER WHERE USER_ID = #{userId}
+	</select>
+
+</mapper>
