@@ -194,7 +194,7 @@ public class MemberController {
 	      // ----------- ------------ -----------
 	      
 	      
-	      // 12345^^^서울시^^^2층
+	      // 12345^^^서울시^^^2층  
 	      // 주소 구분자를 , -> ^^^ 변경
 	      //String addr = inputMember.getMemberAddress().replaceAll(",", "^^^");
 	      //inputMember.setMemberAddress(addr);
@@ -235,7 +235,7 @@ public class MemberController {
 	         message = "회원 가입 실패!";
 	      }
 	      
-	      // 리다이렉트 시 session에 잠깐 올라갔다 내려오도록 세팅
+	      // 리다이렉트 시 session에 잠깐 올라갔다 내려오도록 세팅.
 	      ra.addFlashAttribute("message", message);
 	      
 	      return path;
