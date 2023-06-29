@@ -80,9 +80,9 @@ public class EmailServiceImpl implements EmailService {
             
             // 송신자(보내는 사람) 지정
             mail.setFrom(new InternetAddress(fromEmail, fromUsername));
+            // 수신자(받는사람) 지정
             mail.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
             
-            // 수신자(받는사람) 지정
             
             // 이메일 제목 세팅
             mail.setSubject(subject, charset);
