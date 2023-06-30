@@ -5,6 +5,7 @@ import './App.css';
 // 사용할 때 이름을 Ex1으로 지정
 import Ex1 from './components/Exam1';
 import Ex2 from './components/Exam2';
+import PropsEx from './components/R01_props';
 
 function App() {
   // jsx 표기법 : js + xml
@@ -17,9 +18,12 @@ function App() {
       <h1>Hello React!!</h1>
       <div>와 리액트다</div>
 
-      <Ex1 />
 
-      <Ex2 />
+      {/* <Ex1 />
+      <Ex2 /> */}
+      <PropsEx name={'홍길동'} />
+      <PropsEx name={'김길동'} />
+      <PropsEx name={'박박'} />
     </>
   );
 }
