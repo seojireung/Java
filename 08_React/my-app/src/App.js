@@ -10,6 +10,7 @@ import State1 from './components/R02_state1';
 import State2 from './components/R03_state2';
 import State3 from './components/R04_state3';
 import TodoList1 from './components/R05_todolist1';
+import ContextApi from './components/R06_context_api';
 
 function App() {
   // jsx 표기법 : js + xml
@@ -19,8 +20,8 @@ function App() {
     /* fragment (<> </>) : 반환되는 요소를 감쌀 때 사용, 해석x */
     <>
       {/* jsx 주석 */}
-      <h1>Hello React!!</h1>
-      <div>와 리액트다</div>
+      {/* <h1>Hello React!!</h1> */}
+      {/* <div>와 리액트다</div> */}
 
 
       {/* <Ex1 />
@@ -40,7 +41,11 @@ function App() {
       {/* <State3 /> */}
 
       {/* R05_todolist1 */}
-      <TodoList1/>
+      {/* <TodoList1/> */}
+
+      {/* R06_contextApi */}
+      <ContextApi/>
+
     </>
   );
 }
