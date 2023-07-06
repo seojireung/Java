@@ -52,3 +52,8 @@
   font-weight: bold;
   border: none;
 }
+
+.id-error{
+  color: red;
+  font-weight: bold;
+}
