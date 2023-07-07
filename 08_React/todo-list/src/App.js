@@ -2,6 +2,10 @@ import React, { useState, createContext } from 'react';
 import './App.css';
 
 import SignupContainer from './Signup';
+import Login from './Login';
+import TodoList from './TodoList';
+
+export const TodoListContext = createContext(); // 전역 변수 생성
 
 function App() {
 
@@ -9,8 +13,15 @@ function App() {
 
   const [signupView, setSignupView] = useState(false);
 
+  // 로그인한 회원 정보 저장
+  const [loginMember, setLoginMember] = useState(null);
+
+  // 로그인한 회원의 todo-list(객체 배열)를 저장
+  const [todoList, setTodoList] = useState([]);
+
   return (
-    <>
+                      // 객체 형태로 내보냄
+    <TodoListContext.Provider value={{setTodoList, setLoginMember, loginMember,todoList}}>
       <button onClick={()=>{setSignupView(!signupView)}}>
         {signupView ? ('회원 가입 닫기') : ('회원 가입 열기')}
       </button>
@@ -20,7 +31,17 @@ function App() {
         {/* 조건식 && true인 경우 (자바스크립트 연산자) */}
         {signupView === true && (<SignupContainer/>)}
       </div>
-    </>
+
+      <h1>To do list</h1>
+      <Login />
+
+      <hr/>
+
+      {/* 로그인이 되어 있을 때만 TodoList를 출력 */}
+      {loginMember && (<TodoList/>)}
+
+
+    </TodoListContext.Provider>
   );
 }
 
