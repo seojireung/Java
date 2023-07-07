@@ -47,7 +47,6 @@ public class BoardServiceImpl2 implements BoardService2{
 		// mapper.xml에서 selectKey 태그로 인해!!! 세팅된 값 얻어오기
 		int boardNo = board.getBoardNo();
 		
-		
 		// 2. 게시글 삽입 성공 시
 		//		업로드된 이미지가 있다면 BOARD_IMG 테이블에 삽입하는 DAO 호출
 		

@@ -1,0 +1,133 @@
+@font-face {
+  font-family: 'UhBeemysen';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeemysen.woff') format('woff');
+  font-weight: bolder;
+  font-style: normal;
+}
+*{
+  font-family: "UhBeemysen";
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
+h1{
+  font-size: 2rem;
+}
+h3{
+  font-size: 1.5rem;
+}
+#root{
+  padding: 15px;
+}
+
+#root>button{
+  background-color: transparent;
+  border-radius: 3px;
+  width: 40%;
+  height: 1.7rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: rgb(24, 100, 24);
+  border: 1px solid rgb(24, 100, 24);
+  margin-bottom: 20px;
+}
+#root>button:hover{
+  box-shadow: 2px 2px 2px #c5c5c5;
+}
+
+.signup-wrapper{
+  position: relative;
+}
+
+.signup-container{
+  width: 300px;
+  padding: 20px;
+  position: absolute;
+
+  background-color: white;
+  border: 3px solid #ccc;
+  border-radius: 8px;
+}
+
+.signup-container > label{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.signup-container > label > input{
+  flex-basis: 65%;
+  border-radius: 8px;
+  border: 1px solid rgba(10, 46, 10, 0.792);
+}
+
+.signup-container button{
+  width: 100%;
+  border-radius: 8px;
+  background-color: forestgreen;
+  height: 1.7rem;
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+
+.id-error{
+  color: red;
+  font-weight: bold;
+}
+
+input{
+  border-radius: 8px;
+  border: 1px solid teal;
+  height: 1.2rem;
+  padding: 2px;
+}
+
+
+/* 유저의 투두리스트 */
+
+.todo-container{
+  padding: 20px;
+  width: 500px;
+}
+
+.todo-container li{
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 2px rgba(155, 249, 247, 0.815);
+}
+
+.todo-container li > div{
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-container li > div > span:last-child{
+  display: flex;
+}
+
+.todo-container li > div button{
+  margin: 0 5px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 1px solid red;
+}
+
+.todo-container input~button, td>button, table~button{
+  margin-left: 10px;
+  border-radius: 8px;
+  background-color: rgb(255, 221, 0);
+  /* border: 1px solid black; */
+  border: none;
+  font-weight: bold;
+}
+.todo-container input~button:hover, td>button:hover, table~button:hover{
+  box-shadow: 2px 2px 2px #c5c5c5;
+  transition-duration: 0.1s;
+}
+
+table~button{
+  margin-top: 10px;
+}
+
+.todo-compleate{
+  text-decoration: line-through;
+}

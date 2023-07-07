@@ -1,0 +1,9 @@
+h1{
+  color: green;
+  margin-left: 10px;
+  text-shadow: 2px 2px 2px #c5c5c5;
+}
+
+.completed{
+  text-decoration: line-through;
+}
