@@ -1,0 +1,14 @@
+#root{
+  text-align: center;
+}
+
+.print-area{
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.print-text-area{
+  margin: 0 20%;
+}

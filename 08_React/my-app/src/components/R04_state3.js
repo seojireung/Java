@@ -48,8 +48,8 @@ const StateLiftingUp = () => {
     }
 
     // 순서 5-1 (확인)
-    console.log("id : " + id);
-    console.log("pw : " + pw);
+    // console.log("id : " + id);
+    // console.log("pw : " + pw);
 
     return(
         <>

@@ -10,7 +10,7 @@ const InputTest = () => {
     // setInputValue : inputValue에 값을 대입하는 setter 역할의 함수
 
     const chageInputValue = (e)=>{
-        console.log(e.target.value);
+        // console.log(e.target.value);
         setInputValue(e.target.value);
     }
 

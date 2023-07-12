@@ -28,6 +28,7 @@ function App() {
       <Ex2 /> */}
 
       {/* props : 부모 컴포넌트가 자식 컴포넌트에 데이터 전달 */}
+      {/* props 보낼 때 변수명={값} */}
       {/* <PropsEx name={'홍길동'} />
       <PropsEx name={'김길동'} />
       <PropsEx name={'박박'} /> */}
@@ -38,13 +39,13 @@ function App() {
       {/* <State2 init={100}/> */}
       {/* R04_state3 */}
       {/* <hr /> */}
-      {/* <State3 /> */}
+      <State3 />
 
       {/* R05_todolist1 */}
       {/* <TodoList1/> */}
 
       {/* R06_contextApi */}
-      <ContextApi/>
+      {/* <ContextApi/> */}
 
     </>
   );
